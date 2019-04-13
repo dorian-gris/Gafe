@@ -76,12 +76,16 @@
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmpleados.Designer.cs" />
+    <Compile Include="frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuiCatEmpleados.cs" />
     <Compile Include="RegCatEmpleado.cs" />
-    <EmbeddedResource Include="frmEmpleados.resx" />
+    <EmbeddedResource Include="frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

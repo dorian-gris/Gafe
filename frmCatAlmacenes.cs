@@ -307,16 +307,36 @@ namespace GAFE
         private Boolean Validar()
         {
             Boolean dv = true;
+            ClsUtilerias Util = new ClsUtilerias();
             if (String.IsNullOrEmpty(txtClaveAlmacen.Text))
-            {
-                MessageBox.Show("Tienes que capturar el codigo del Almacen", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {                
+                MessageBox.Show("Código: No puede ir vacío.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
+            else
+            {
+                if (!Util.LetrasNum(txtClaveAlmacen.Text))
+                {
+                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dv = false;
+                }
+            }
+
             if (String.IsNullOrEmpty(txtDescripcion.Text))
             {
-                MessageBox.Show("Tienes que capturar la decripcion del Almacen", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Descripción: No puede ir vacío.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
+            else
+            {
+                if (!Util.LetrasNumSpa(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dv = false;
+                }
+            }
+
+
             return dv;
         }
 

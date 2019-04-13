@@ -45,6 +45,28 @@ namespace GAFE
             Ans = ExpReg.IsMatch(PStr) ? true : false;
             return Ans;
         }
+        public Boolean Moneda(string PStr)//Obliga a poner comas cada 3 digitos, y si va con decimal obliga a poner minimo 1 digito maximo3
+        {
+            ExpReg = new Regex("^[0-9]{1,3}([\\,][0-9]{3})*([\\.][0-9]{1,3})*$");
+            Ans = ExpReg.IsMatch(PStr) ? true : false;
+            return Ans;
+        }
+        public Boolean Decimal(string PStr)//Valida números y si va con decimal obliga a poner minimo 1 digito maximo3
+        {
+            ExpReg = new Regex("^([0-9]{0,})[.]?[0-9]{1,3}$");
+            Ans = ExpReg.IsMatch(PStr) ? true : false;
+            return Ans;
+        }
+
+        public Boolean Cp(string PStr)//Valida codigo postal
+        {
+            ExpReg = new Regex("^[0-9]{5}$");
+            Ans = ExpReg.IsMatch(PStr) ? true : false;
+            return Ans;
+        }
+
+
+
 
     }
 }

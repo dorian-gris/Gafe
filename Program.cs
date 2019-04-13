@@ -16,7 +16,7 @@ namespace GAFE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCatAlmacenes());
+            Application.Run(new Form1());
         }
     }
 }

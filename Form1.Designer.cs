@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.Clientes = new System.Windows.Forms.RibbonTab();
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -65,12 +72,54 @@
             // ribbonTab1
             // 
             this.ribbonTab1.Name = "ribbonTab1";
+            this.ribbonTab1.Panels.Add(this.ribbonPanel1);
+            this.ribbonTab1.Panels.Add(this.ribbonPanel2);
+            this.ribbonTab1.Panels.Add(this.ribbonPanel3);
             this.ribbonTab1.Text = "Inventarios";
+            // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.Items.Add(this.ribbonButton2);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Text = "Catalogos";
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = "Procesos";
+            // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Text = "Reportes";
             // 
             // ribbonTab2
             // 
             this.ribbonTab2.Name = "ribbonTab2";
             this.ribbonTab2.Text = "Proveedores";
+            // 
+            // ribbonButton1
+            // 
+            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
+            this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
+            this.ribbonButton1.Name = "ribbonButton1";
+            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+            // 
+            // ribbonPanel4
+            // 
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Text = null;
+            // 
+            // ribbonButton2
+            // 
+            this.ribbonButton2.CheckOnClick = true;
+            this.ribbonButton2.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Right;
+            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
+            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
+            this.ribbonButton2.Name = "ribbonButton2";
+            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+            this.ribbonButton2.Text = "Almacenes";
+            this.ribbonButton2.Click += new System.EventHandler(this.ribbonButton2_Click);
             // 
             // Form1
             // 
@@ -91,6 +140,12 @@
         private System.Windows.Forms.RibbonTab Clientes;
         private System.Windows.Forms.RibbonTab ribbonTab1;
         private System.Windows.Forms.RibbonTab ribbonTab2;
+        private System.Windows.Forms.RibbonPanel ribbonPanel1;
+        private System.Windows.Forms.RibbonPanel ribbonPanel2;
+        private System.Windows.Forms.RibbonPanel ribbonPanel3;
+        private System.Windows.Forms.RibbonButton ribbonButton1;
+        private System.Windows.Forms.RibbonPanel ribbonPanel4;
+        private System.Windows.Forms.RibbonButton ribbonButton2;
     }
 }
 

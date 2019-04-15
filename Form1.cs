@@ -16,5 +16,11 @@ namespace GAFE
         {
             InitializeComponent();
         }
+
+        private void ribbonButton2_Click(object sender, EventArgs e)
+        {
+            frmCatAlmacenes falm = new frmCatAlmacenes();
+            falm.ShowDialog();
+        }
     }
 }

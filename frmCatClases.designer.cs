@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmdConsultar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCatClases));
             this.panel2 = new System.Windows.Forms.Panel();
             this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,20 +48,11 @@
             this.cmdBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmdConsultar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmdConsultar
-            // 
-            this.cmdConsultar.Location = new System.Drawing.Point(12, 221);
-            this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(75, 23);
-            this.cmdConsultar.TabIndex = 3;
-            this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.UseVisualStyleBackColor = true;
-            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // panel2
             // 
@@ -103,21 +94,27 @@
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.Location = new System.Drawing.Point(407, 116);
+            this.cmdCancelar.Image = global::GAFE.Properties.Resources.Cancelar;
+            this.cmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdCancelar.Location = new System.Drawing.Point(388, 103);
             this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.Size = new System.Drawing.Size(75, 23);
+            this.cmdCancelar.Size = new System.Drawing.Size(94, 36);
             this.cmdCancelar.TabIndex = 11;
             this.cmdCancelar.Text = "Cancelar";
+            this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.Location = new System.Drawing.Point(326, 116);
+            this.cmdAceptar.Image = global::GAFE.Properties.Resources.Guardar;
+            this.cmdAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdAceptar.Location = new System.Drawing.Point(288, 103);
             this.cmdAceptar.Name = "cmdAceptar";
-            this.cmdAceptar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAceptar.Size = new System.Drawing.Size(94, 36);
             this.cmdAceptar.TabIndex = 10;
             this.cmdAceptar.Text = "Aceptar";
+            this.cmdAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
@@ -163,31 +160,40 @@
             // 
             // cmdEliminar
             // 
-            this.cmdEliminar.Location = new System.Drawing.Point(402, 221);
+            this.cmdEliminar.Image = global::GAFE.Properties.Resources.Eliminar;
+            this.cmdEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdEliminar.Location = new System.Drawing.Point(396, 221);
             this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.Size = new System.Drawing.Size(75, 23);
+            this.cmdEliminar.Size = new System.Drawing.Size(94, 36);
             this.cmdEliminar.TabIndex = 6;
             this.cmdEliminar.Text = "Eliminar";
+            this.cmdEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdEliminar.UseVisualStyleBackColor = true;
             this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // cmEditar
             // 
-            this.cmEditar.Location = new System.Drawing.Point(321, 221);
+            this.cmEditar.Image = ((System.Drawing.Image)(resources.GetObject("cmEditar.Image")));
+            this.cmEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmEditar.Location = new System.Drawing.Point(293, 221);
             this.cmEditar.Name = "cmEditar";
-            this.cmEditar.Size = new System.Drawing.Size(75, 23);
+            this.cmEditar.Size = new System.Drawing.Size(94, 36);
             this.cmEditar.TabIndex = 5;
             this.cmEditar.Text = "Editar";
+            this.cmEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmEditar.UseVisualStyleBackColor = true;
             this.cmEditar.Click += new System.EventHandler(this.cmEditar_Click);
             // 
             // cmdAgregar
             // 
-            this.cmdAgregar.Location = new System.Drawing.Point(240, 221);
+            this.cmdAgregar.Image = global::GAFE.Properties.Resources.Nuevo;
+            this.cmdAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdAgregar.Location = new System.Drawing.Point(193, 221);
             this.cmdAgregar.Name = "cmdAgregar";
-            this.cmdAgregar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAgregar.Size = new System.Drawing.Size(94, 36);
             this.cmdAgregar.TabIndex = 4;
             this.cmdAgregar.Text = "Agregar";
+            this.cmdAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdAgregar.UseVisualStyleBackColor = true;
             this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
             // 
@@ -236,12 +242,15 @@
             // 
             // cmdBuscar
             // 
-            this.cmdBuscar.BackColor = System.Drawing.Color.SteelBlue;
-            this.cmdBuscar.Location = new System.Drawing.Point(419, 3);
+            this.cmdBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdBuscar.Image = global::GAFE.Properties.Resources.Buscar;
+            this.cmdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdBuscar.Location = new System.Drawing.Point(389, 7);
             this.cmdBuscar.Name = "cmdBuscar";
-            this.cmdBuscar.Size = new System.Drawing.Size(69, 48);
+            this.cmdBuscar.Size = new System.Drawing.Size(94, 36);
             this.cmdBuscar.TabIndex = 2;
             this.cmdBuscar.Text = "Buscar";
+            this.cmdBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdBuscar.UseVisualStyleBackColor = false;
             this.cmdBuscar.Click += new System.EventHandler(this.cmdBuscar_Click);
             // 
@@ -250,7 +259,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(59, 11);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(354, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(324, 26);
             this.txtBuscar.TabIndex = 1;
             // 
             // label1
@@ -262,6 +271,19 @@
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar";
+            // 
+            // cmdConsultar
+            // 
+            this.cmdConsultar.Image = global::GAFE.Properties.Resources.Consultar;
+            this.cmdConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdConsultar.Location = new System.Drawing.Point(12, 221);
+            this.cmdConsultar.Name = "cmdConsultar";
+            this.cmdConsultar.Size = new System.Drawing.Size(97, 36);
+            this.cmdConsultar.TabIndex = 3;
+            this.cmdConsultar.Text = "Consultar";
+            this.cmdConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // frmCatClases
             // 

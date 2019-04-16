@@ -14,7 +14,7 @@ using System.IO;
 
 namespace GAFE
 {
-    public partial class frmCatAlmacenes : Form
+    public partial class frmCatClases : Form
     {
         private SqlDataAdapter DatosTbl;
         private int opcion;
@@ -34,13 +34,13 @@ namespace GAFE
         private string Password;
 
 
-        public frmCatAlmacenes()
+        public frmCatClases()
         {
             InitializeComponent();
         }
 
 
-        public frmCatAlmacenes(MsSql Odat, string perfil)
+        public frmCatClases(MsSql Odat, string perfil)
         {
             InitializeComponent();
             db = Odat;
@@ -49,7 +49,7 @@ namespace GAFE
 
 
 
-        private void frmCatAlmacenes_Load(object sender, EventArgs e)
+        private void frmCatClases_Load(object sender, EventArgs e)
         {
             /*
             uT = new clsUtil(db, Perfil);
@@ -107,19 +107,15 @@ namespace GAFE
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
+            PuiCatClases pui = new PuiCatClases(db);
 
-            pui.keyClaveAlmacen = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarAlmacen();
-            txtClaveAlmacen.Text = pui.keyClaveAlmacen;
+            pui.keyCveClase= grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarClase();
+            txtClaveClase.Text = pui.keyCveClase;
             txtDescripcion.Text = pui.cmpDescripcion;
-            cboEstatus.SelectedText = (pui.cmpEstatus == "A") ? "Activo" : "Baja";
-            chkEsDeCompra.Checked = (pui.cmpEsDeCompra == 1) ? true : false;
-            chkEsDeVenta.Checked = (pui.cmpEsDeVenta == 1) ? true : false;
-            chkEsDeConsigna.Checked = (pui.cmpEsDeConsigna == 1) ? true : false;
-            chkNumRojo.Checked = (pui.cmpNumRojo == 1) ? true : false;
+            cboEstatus.SelectedText = (pui.cmpEstatus == "1") ? "Activo" : "Baja";
 
-            txtClaveAlmacen.Enabled = false;
+            txtClaveClase.Enabled = false;
 
         }
 
@@ -132,17 +128,13 @@ namespace GAFE
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
+            PuiCatClases pui = new PuiCatClases(db);
 
-            pui.keyClaveAlmacen = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarAlmacen();
-            txtClaveAlmacen.Text = pui.keyClaveAlmacen;
+            pui.keyCveClase = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarClase();
+            txtClaveClase.Text = pui.keyCveClase;
             txtDescripcion.Text = pui.cmpDescripcion;
-            cboEstatus.SelectedText = (pui.cmpEstatus == "A") ? "Activo" : "Baja";
-            chkEsDeCompra.Checked = (pui.cmpEsDeCompra == 1) ? true : false;
-            chkEsDeVenta.Checked = (pui.cmpEsDeVenta == 1) ? true : false;
-            chkEsDeConsigna.Checked = (pui.cmpEsDeConsigna == 1) ? true : false;
-            chkNumRojo.Checked = (pui.cmpNumRojo == 1) ? true : false;
+            cboEstatus.SelectedText = (pui.cmpEstatus == "1") ? "Activo" : "Baja";
 
             OpcionControles(false);
         }
@@ -154,11 +146,11 @@ namespace GAFE
                 if (MessageBox.Show("Esta seguro de eliminar el registro " + grdView[0, grdView.CurrentRow.Index].Value.ToString(),
                      "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
-                    pui.keyClaveAlmacen = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-                    pui.EliminaAlmacen();
+                    PuiCatClases pui = new PuiCatClases(db);
+                    pui.keyCveClase = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+                    pui.EliminaClase();
                     LlenaGridView();
-                    this.Size = this.MinimumSize;
+                 //   this.Size = this.MinimumSize;
                 }
 
 
@@ -173,8 +165,8 @@ namespace GAFE
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
-            DatosTbl = pui.BuscaAlmacen(txtBuscar.Text);
+            PuiCatClases pui = new PuiCatClases(db);
+            DatosTbl = pui.BuscaClase(txtBuscar.Text);
             DataSet ds = new DataSet();
             DatosTbl.Fill(ds);
 
@@ -209,7 +201,7 @@ namespace GAFE
             OpcionControles(true);
         }
 
-        private void frmCatAlmacenes_KeyDown(object sender, KeyEventArgs e)
+        private void frmCatClases_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -223,8 +215,8 @@ namespace GAFE
 
         private void LlenaGridView()
         {
-            PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
-            DatosTbl = pui.ListarAlmacenes();
+            PuiCatClases pui = new PuiCatClases(db);
+            DatosTbl = pui.ListarClases();
             DataSet Ds = new DataSet();
 
             try
@@ -249,17 +241,14 @@ namespace GAFE
         {
             if (Validar())
             {
-                PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
+                PuiCatClases pui = new PuiCatClases(db);
                                 
-                pui.keyClaveAlmacen = txtClaveAlmacen.Text;
+                pui.keyCveClase = txtClaveClase.Text;
                 pui.cmpDescripcion = txtDescripcion.Text;
-                pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "A" : "B";
-                pui.cmpEsDeCompra = (chkEsDeCompra.Checked == true) ? 1 : 0;
-                pui.cmpEsDeVenta = (chkEsDeVenta.Checked == true) ? 1 : 0;
-                pui.cmpEsDeConsigna  = (chkEsDeConsigna.Checked == true) ? 1 : 0;
-                pui.cmpNumRojo =  (chkNumRojo.Checked == true) ? 1 : 0;
+                pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "1" : "0";
+            
 
-                if (pui.AgregarAlmacen() >= 1)
+                if (pui.AgregarClase() >= 1)
                 {
                     MessageBox.Show("Registro agregado", "Confirmacion", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
@@ -276,17 +265,13 @@ namespace GAFE
             {
                 if (Validar())
                 {
-                    PuiCatAlmacenes pui = new PuiCatAlmacenes(db);
+                    PuiCatClases pui = new PuiCatClases(db);
 
-                    pui.keyClaveAlmacen = txtClaveAlmacen.Text;
+                    pui.keyCveClase = txtClaveClase.Text;
                     pui.cmpDescripcion = txtDescripcion.Text;
-                    pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "A" : "B";
-                    pui.cmpEsDeCompra = (chkEsDeCompra.Checked == true) ? 1 : 0;
-                    pui.cmpEsDeVenta = (chkEsDeVenta.Checked == true) ? 1 : 0;
-                    pui.cmpEsDeConsigna = (chkEsDeConsigna.Checked == true) ? 1 : 0;
-                    pui.cmpNumRojo = (chkNumRojo.Checked == true) ? 1 : 0;
+                    pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "1" : "0";
 
-                    if (pui.ActualizaAlmacen() >= 0)
+                    if (pui.ActualizaClase() >= 0)
                     {
                         MessageBox.Show("Registro Actualizado", "Confirmacion", MessageBoxButtons.OK,
                                            MessageBoxIcon.Information);
@@ -309,30 +294,30 @@ namespace GAFE
         {
             Boolean dv = true;
             ClsUtilerias Util = new ClsUtilerias();
-            if (String.IsNullOrEmpty(txtClaveAlmacen.Text))
+            if (String.IsNullOrEmpty(txtClaveClase.Text))
             {                
-                MessageBox.Show("Código: No puede ir vacío.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Código: No puede ir vacío.", "CatClasees", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
             else
             {
-                if (!Util.LetrasNum(txtClaveAlmacen.Text))
+                if (!Util.LetrasNum(txtClaveClase.Text))
                 {
-                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatClases", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dv = false;
                 }
             }
 
             if (String.IsNullOrEmpty(txtDescripcion.Text))
             {
-                MessageBox.Show("Descripción: No puede ir vacío.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Descripción: No puede ir vacío.", "CatClases", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
             else
             {
                 if (!Util.LetrasNumSpa(txtDescripcion.Text))
                 {
-                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatAlmacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatClases", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dv = false;
                 }
             }
@@ -342,27 +327,18 @@ namespace GAFE
         }
 
 
-
         private void OpcionControles(Boolean Op)
         {
-            txtClaveAlmacen.Enabled = Op;
+            txtClaveClase.Enabled = Op;
             txtDescripcion.Enabled = Op;
             cboEstatus.Enabled = Op;
-            chkEsDeCompra.Enabled = Op;
-            chkEsDeVenta.Enabled = Op;
-            chkEsDeConsigna.Enabled = Op;
-            chkNumRojo.Enabled = Op;
         }
 
         private void LimpiarControles()
         {
-            txtClaveAlmacen.Text = "";
+            txtClaveClase.Text = "";
             txtDescripcion.Text = "";
             cboEstatus.Text = "";
-            chkEsDeCompra.Checked = false;
-            chkEsDeVenta.Checked = false;
-            chkEsDeConsigna.Checked = false;
-            chkNumRojo.Checked = false;
         }
 
         private void grdView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -405,6 +381,9 @@ namespace GAFE
             }
         }
 
+        private void grdView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

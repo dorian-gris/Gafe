@@ -1,6 +1,6 @@
 ﻿namespace GAFE
 {
-    partial class frmCatAlmacenes
+    partial class frmCatClases
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,13 @@
         {
             this.cmdConsultar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.chkNumRojo = new System.Windows.Forms.CheckBox();
-            this.chkEsDeConsigna = new System.Windows.Forms.CheckBox();
-            this.chkEsDeVenta = new System.Windows.Forms.CheckBox();
-            this.chkEsDeCompra = new System.Windows.Forms.CheckBox();
             this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmdCancelar = new System.Windows.Forms.Button();
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtClaveAlmacen = new System.Windows.Forms.TextBox();
+            this.txtClaveClase = new System.Windows.Forms.TextBox();
             this.lblCodEmpleado = new System.Windows.Forms.Label();
             this.cmdEliminar = new System.Windows.Forms.Button();
             this.cmEditar = new System.Windows.Forms.Button();
@@ -70,66 +66,18 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.chkNumRojo);
-            this.panel2.Controls.Add(this.chkEsDeConsigna);
-            this.panel2.Controls.Add(this.chkEsDeVenta);
-            this.panel2.Controls.Add(this.chkEsDeCompra);
             this.panel2.Controls.Add(this.cboEstatus);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.cmdCancelar);
             this.panel2.Controls.Add(this.cmdAceptar);
             this.panel2.Controls.Add(this.txtDescripcion);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtClaveAlmacen);
+            this.panel2.Controls.Add(this.txtClaveClase);
             this.panel2.Controls.Add(this.lblCodEmpleado);
             this.panel2.Location = new System.Drawing.Point(2, 263);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 249);
+            this.panel2.Size = new System.Drawing.Size(495, 146);
             this.panel2.TabIndex = 12;
-            // 
-            // chkNumRojo
-            // 
-            this.chkNumRojo.AutoSize = true;
-            this.chkNumRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkNumRojo.Location = new System.Drawing.Point(95, 192);
-            this.chkNumRojo.Name = "chkNumRojo";
-            this.chkNumRojo.Size = new System.Drawing.Size(175, 22);
-            this.chkNumRojo.TabIndex = 13;
-            this.chkNumRojo.Text = "Trabaja con Negativos";
-            this.chkNumRojo.UseVisualStyleBackColor = true;
-            // 
-            // chkEsDeConsigna
-            // 
-            this.chkEsDeConsigna.AutoSize = true;
-            this.chkEsDeConsigna.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsDeConsigna.Location = new System.Drawing.Point(95, 164);
-            this.chkEsDeConsigna.Name = "chkEsDeConsigna";
-            this.chkEsDeConsigna.Size = new System.Drawing.Size(118, 22);
-            this.chkEsDeConsigna.TabIndex = 12;
-            this.chkEsDeConsigna.Text = "Consignacion";
-            this.chkEsDeConsigna.UseVisualStyleBackColor = true;
-            // 
-            // chkEsDeVenta
-            // 
-            this.chkEsDeVenta.AutoSize = true;
-            this.chkEsDeVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsDeVenta.Location = new System.Drawing.Point(95, 136);
-            this.chkEsDeVenta.Name = "chkEsDeVenta";
-            this.chkEsDeVenta.Size = new System.Drawing.Size(68, 22);
-            this.chkEsDeVenta.TabIndex = 11;
-            this.chkEsDeVenta.Text = "Vende";
-            this.chkEsDeVenta.UseVisualStyleBackColor = true;
-            // 
-            // chkEsDeCompra
-            // 
-            this.chkEsDeCompra.AutoSize = true;
-            this.chkEsDeCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsDeCompra.Location = new System.Drawing.Point(95, 108);
-            this.chkEsDeCompra.Name = "chkEsDeCompra";
-            this.chkEsDeCompra.Size = new System.Drawing.Size(81, 22);
-            this.chkEsDeCompra.TabIndex = 10;
-            this.chkEsDeCompra.Text = "Compra";
-            this.chkEsDeCompra.UseVisualStyleBackColor = true;
             // 
             // cboEstatus
             // 
@@ -155,20 +103,20 @@
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.Location = new System.Drawing.Point(402, 220);
+            this.cmdCancelar.Location = new System.Drawing.Point(407, 116);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancelar.TabIndex = 15;
+            this.cmdCancelar.TabIndex = 11;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.Location = new System.Drawing.Point(321, 220);
+            this.cmdAceptar.Location = new System.Drawing.Point(326, 116);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(75, 23);
-            this.cmdAceptar.TabIndex = 14;
+            this.cmdAceptar.TabIndex = 10;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
@@ -178,7 +126,7 @@
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(95, 42);
-            this.txtDescripcion.MaxLength = 150;
+            this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(392, 26);
             this.txtDescripcion.TabIndex = 8;
@@ -191,17 +139,17 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Descripción";
+            this.label2.Text = "Descripcion";
             // 
-            // txtClaveAlmacen
+            // txtClaveClase
             // 
-            this.txtClaveAlmacen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClaveAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveAlmacen.Location = new System.Drawing.Point(95, 10);
-            this.txtClaveAlmacen.MaxLength = 10;
-            this.txtClaveAlmacen.Name = "txtClaveAlmacen";
-            this.txtClaveAlmacen.Size = new System.Drawing.Size(147, 26);
-            this.txtClaveAlmacen.TabIndex = 7;
+            this.txtClaveClase.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClaveClase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveClase.Location = new System.Drawing.Point(95, 10);
+            this.txtClaveClase.MaxLength = 10;
+            this.txtClaveClase.Name = "txtClaveClase";
+            this.txtClaveClase.Size = new System.Drawing.Size(147, 26);
+            this.txtClaveClase.TabIndex = 7;
             // 
             // lblCodEmpleado
             // 
@@ -257,6 +205,7 @@
             this.grdView.ReadOnly = true;
             this.grdView.Size = new System.Drawing.Size(474, 150);
             this.grdView.TabIndex = 8;
+            this.grdView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdView_CellContentClick);
             this.grdView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdView_RowHeaderMouseDoubleClick);
             this.grdView.DoubleClick += new System.EventHandler(this.grdView_DoubleClick);
             // 
@@ -314,11 +263,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar";
             // 
-            // frmCatAlmacenes
+            // frmCatClases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 515);
+            this.ClientSize = new System.Drawing.Size(499, 410);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cmdEliminar);
@@ -327,12 +276,12 @@
             this.Controls.Add(this.grdView);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(515, 554);
+            this.MaximumSize = new System.Drawing.Size(515, 459);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(515, 286);
-            this.Name = "frmCatAlmacenes";
-            this.Text = "Catálogo de almacenes";
-            this.Load += new System.EventHandler(this.frmCatAlmacenes_Load);
+            this.Name = "frmCatClases";
+            this.Text = "Catálogo de clases";
+            this.Load += new System.EventHandler(this.frmCatClases_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
@@ -352,7 +301,7 @@
         private System.Windows.Forms.Button cmdAceptar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtClaveAlmacen;
+        private System.Windows.Forms.TextBox txtClaveClase;
         private System.Windows.Forms.Label lblCodEmpleado;
         private System.Windows.Forms.Button cmdEliminar;
         private System.Windows.Forms.Button cmEditar;
@@ -364,9 +313,5 @@
         private System.Windows.Forms.Button cmdBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkNumRojo;
-        private System.Windows.Forms.CheckBox chkEsDeConsigna;
-        private System.Windows.Forms.CheckBox chkEsDeVenta;
-        private System.Windows.Forms.CheckBox chkEsDeCompra;
     }
 }

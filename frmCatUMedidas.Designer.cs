@@ -1,6 +1,6 @@
 ﻿namespace GAFE
 {
-    partial class frmCatClases
+    partial class frmCatUMedidas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCatClases));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmdBuscar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -36,23 +39,59 @@
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtClaveClase = new System.Windows.Forms.TextBox();
+            this.txtClaveUMedida = new System.Windows.Forms.TextBox();
             this.lblCodEmpleado = new System.Windows.Forms.Label();
+            this.cmdConsultar = new System.Windows.Forms.Button();
             this.cmdEliminar = new System.Windows.Forms.Button();
             this.cmEditar = new System.Windows.Forms.Button();
             this.cmdAgregar = new System.Windows.Forms.Button();
             this.grdView = new System.Windows.Forms.DataGridView();
             this.CodEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cmdBuscar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmdConsultar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cmdBuscar);
+            this.panel1.Controls.Add(this.txtBuscar);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(495, 58);
+            this.panel1.TabIndex = 9;
+            // 
+            // cmdBuscar
+            // 
+            this.cmdBuscar.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdBuscar.Location = new System.Drawing.Point(419, 3);
+            this.cmdBuscar.Name = "cmdBuscar";
+            this.cmdBuscar.Size = new System.Drawing.Size(69, 48);
+            this.cmdBuscar.TabIndex = 2;
+            this.cmdBuscar.Text = "Buscar";
+            this.cmdBuscar.UseVisualStyleBackColor = false;
+            this.cmdBuscar.Click += new System.EventHandler(this.cmdBuscar_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(59, 11);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(354, 26);
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Buscar";
             // 
             // panel2
             // 
@@ -63,12 +102,12 @@
             this.panel2.Controls.Add(this.cmdAceptar);
             this.panel2.Controls.Add(this.txtDescripcion);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtClaveClase);
+            this.panel2.Controls.Add(this.txtClaveUMedida);
             this.panel2.Controls.Add(this.lblCodEmpleado);
-            this.panel2.Location = new System.Drawing.Point(2, 263);
+            this.panel2.Location = new System.Drawing.Point(2, 250);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(495, 146);
-            this.panel2.TabIndex = 12;
+            this.panel2.TabIndex = 20;
             // 
             // cboEstatus
             // 
@@ -94,30 +133,22 @@
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdCancelar.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancelar.Image")));
-            this.cmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCancelar.Location = new System.Drawing.Point(393, 105);
+            this.cmdCancelar.Location = new System.Drawing.Point(407, 116);
             this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.Size = new System.Drawing.Size(94, 36);
+            this.cmdCancelar.Size = new System.Drawing.Size(75, 23);
             this.cmdCancelar.TabIndex = 11;
             this.cmdCancelar.Text = "Cancelar";
-            this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdCancelar.UseVisualStyleBackColor = false;
+            this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdAceptar.Image = ((System.Drawing.Image)(resources.GetObject("cmdAceptar.Image")));
-            this.cmdAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAceptar.Location = new System.Drawing.Point(288, 105);
+            this.cmdAceptar.Location = new System.Drawing.Point(326, 116);
             this.cmdAceptar.Name = "cmdAceptar";
-            this.cmdAceptar.Size = new System.Drawing.Size(94, 36);
+            this.cmdAceptar.Size = new System.Drawing.Size(75, 23);
             this.cmdAceptar.TabIndex = 10;
             this.cmdAceptar.Text = "Aceptar";
-            this.cmdAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAceptar.UseVisualStyleBackColor = false;
+            this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // txtDescripcion
@@ -140,15 +171,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripcion";
             // 
-            // txtClaveClase
+            // txtClaveUMedida
             // 
-            this.txtClaveClase.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClaveClase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveClase.Location = new System.Drawing.Point(95, 10);
-            this.txtClaveClase.MaxLength = 10;
-            this.txtClaveClase.Name = "txtClaveClase";
-            this.txtClaveClase.Size = new System.Drawing.Size(147, 26);
-            this.txtClaveClase.TabIndex = 7;
+            this.txtClaveUMedida.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClaveUMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveUMedida.Location = new System.Drawing.Point(95, 10);
+            this.txtClaveUMedida.MaxLength = 10;
+            this.txtClaveUMedida.Name = "txtClaveUMedida";
+            this.txtClaveUMedida.Size = new System.Drawing.Size(147, 26);
+            this.txtClaveUMedida.TabIndex = 7;
             // 
             // lblCodEmpleado
             // 
@@ -160,46 +191,44 @@
             this.lblCodEmpleado.TabIndex = 1;
             this.lblCodEmpleado.Text = "Codigo";
             // 
+            // cmdConsultar
+            // 
+            this.cmdConsultar.Location = new System.Drawing.Point(14, 221);
+            this.cmdConsultar.Name = "cmdConsultar";
+            this.cmdConsultar.Size = new System.Drawing.Size(75, 23);
+            this.cmdConsultar.TabIndex = 15;
+            this.cmdConsultar.Text = "Consultar";
+            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
+            // 
             // cmdEliminar
             // 
-            this.cmdEliminar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmdEliminar.Image")));
-            this.cmdEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdEliminar.Location = new System.Drawing.Point(401, 221);
+            this.cmdEliminar.Location = new System.Drawing.Point(404, 221);
             this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.Size = new System.Drawing.Size(94, 36);
-            this.cmdEliminar.TabIndex = 6;
+            this.cmdEliminar.Size = new System.Drawing.Size(75, 23);
+            this.cmdEliminar.TabIndex = 18;
             this.cmdEliminar.Text = "Eliminar";
-            this.cmdEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdEliminar.UseVisualStyleBackColor = false;
+            this.cmdEliminar.UseVisualStyleBackColor = true;
             this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // cmEditar
             // 
-            this.cmEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmEditar.Image = ((System.Drawing.Image)(resources.GetObject("cmEditar.Image")));
-            this.cmEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmEditar.Location = new System.Drawing.Point(301, 221);
+            this.cmEditar.Location = new System.Drawing.Point(323, 221);
             this.cmEditar.Name = "cmEditar";
-            this.cmEditar.Size = new System.Drawing.Size(94, 36);
-            this.cmEditar.TabIndex = 5;
+            this.cmEditar.Size = new System.Drawing.Size(75, 23);
+            this.cmEditar.TabIndex = 17;
             this.cmEditar.Text = "Editar";
-            this.cmEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmEditar.UseVisualStyleBackColor = false;
+            this.cmEditar.UseVisualStyleBackColor = true;
             this.cmEditar.Click += new System.EventHandler(this.cmEditar_Click);
             // 
             // cmdAgregar
             // 
-            this.cmdAgregar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdAgregar.Image = ((System.Drawing.Image)(resources.GetObject("cmdAgregar.Image")));
-            this.cmdAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAgregar.Location = new System.Drawing.Point(201, 221);
+            this.cmdAgregar.Location = new System.Drawing.Point(242, 221);
             this.cmdAgregar.Name = "cmdAgregar";
-            this.cmdAgregar.Size = new System.Drawing.Size(94, 36);
-            this.cmdAgregar.TabIndex = 4;
+            this.cmdAgregar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAgregar.TabIndex = 16;
             this.cmdAgregar.Text = "Agregar";
-            this.cmdAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAgregar.UseVisualStyleBackColor = false;
+            this.cmdAgregar.UseVisualStyleBackColor = true;
             this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
             // 
             // grdView
@@ -211,14 +240,11 @@
             this.grdView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodEmpleado,
             this.Nombre});
-            this.grdView.Location = new System.Drawing.Point(11, 65);
+            this.grdView.Location = new System.Drawing.Point(13, 65);
             this.grdView.Name = "grdView";
             this.grdView.ReadOnly = true;
             this.grdView.Size = new System.Drawing.Size(474, 150);
-            this.grdView.TabIndex = 8;
-            this.grdView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdView_CellContentClick);
-            this.grdView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdView_RowHeaderMouseDoubleClick);
-            this.grdView.DoubleClick += new System.EventHandler(this.grdView_DoubleClick);
+            this.grdView.TabIndex = 19;
             // 
             // CodEmpleado
             // 
@@ -234,70 +260,13 @@
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 350;
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.cmdBuscar);
-            this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(495, 58);
-            this.panel1.TabIndex = 7;
-            // 
-            // cmdBuscar
-            // 
-            this.cmdBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdBuscar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBuscar.Image")));
-            this.cmdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdBuscar.Location = new System.Drawing.Point(394, 7);
-            this.cmdBuscar.Name = "cmdBuscar";
-            this.cmdBuscar.Size = new System.Drawing.Size(94, 36);
-            this.cmdBuscar.TabIndex = 2;
-            this.cmdBuscar.Text = "Buscar";
-            this.cmdBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdBuscar.UseVisualStyleBackColor = false;
-            this.cmdBuscar.Click += new System.EventHandler(this.cmdBuscar_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(59, 11);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(324, 26);
-            this.txtBuscar.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar";
-            // 
-            // cmdConsultar
-            // 
-            this.cmdConsultar.BackColor = System.Drawing.SystemColors.Control;
-            this.cmdConsultar.Image = ((System.Drawing.Image)(resources.GetObject("cmdConsultar.Image")));
-            this.cmdConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdConsultar.Location = new System.Drawing.Point(12, 221);
-            this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(94, 36);
-            this.cmdConsultar.TabIndex = 3;
-            this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdConsultar.UseVisualStyleBackColor = false;
-            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
-            // 
-            // frmCatClases
+            // frmCatUMedidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 411);
-            this.Controls.Add(this.cmdConsultar);
+            this.ClientSize = new System.Drawing.Size(499, 420);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdEliminar);
             this.Controls.Add(this.cmEditar);
             this.Controls.Add(this.cmdAgregar);
@@ -305,26 +274,27 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(515, 449);
+            this.MaximumSize = new System.Drawing.Size(515, 459);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(515, 300);
-            this.Name = "frmCatClases";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Catálogo de clases";
-            this.Load += new System.EventHandler(this.frmCatClases_Load);
+            this.MinimumSize = new System.Drawing.Size(515, 286);
+            this.Name = "frmCatUMedidas";
+            this.Text = "Catálogo de Medidas";
+            this.Load += new System.EventHandler(this.frmCatUMedidas_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button cmdConsultar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button cmdBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cboEstatus;
         private System.Windows.Forms.Label label8;
@@ -332,17 +302,14 @@
         private System.Windows.Forms.Button cmdAceptar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtClaveClase;
+        private System.Windows.Forms.TextBox txtClaveUMedida;
         private System.Windows.Forms.Label lblCodEmpleado;
+        private System.Windows.Forms.Button cmdConsultar;
         private System.Windows.Forms.Button cmdEliminar;
         private System.Windows.Forms.Button cmEditar;
         private System.Windows.Forms.Button cmdAgregar;
         private System.Windows.Forms.DataGridView grdView;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button cmdBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Label label1;
     }
 }

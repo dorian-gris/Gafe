@@ -97,22 +97,42 @@
     <Compile Include="frmCatImpuestos.designer.cs">
       <DependentUpon>frmCatImpuestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCatLineas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatLineas.designer.cs">
+      <DependentUpon>frmCatLineas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatUMedidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatUMedidas.designer.cs">
+      <DependentUpon>frmCatUMedidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PuiCatImpuestos.cs" />
     <Compile Include="PuiCatClases.cs" />
     <Compile Include="PuiCatAlmacenes.cs" />
     <Compile Include="PuiCatEmpleados.cs" />
+    <Compile Include="PuiCatLineas.cs" />
+    <Compile Include="PuiCatUMedidas.cs" />
     <Compile Include="RegCatImpuesto.cs" />
     <Compile Include="RegCatClase.cs" />
     <Compile Include="RegCatAlmacen.cs" />
     <Compile Include="RegCatEmpleado.cs" />
+    <Compile Include="RegCatLinea.cs" />
+    <Compile Include="RegCatUMedida.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,19 +145,19 @@
     <EmbeddedResource Include="frmCatImpuestos.resx">
       <DependentUpon>frmCatImpuestos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCatLineas.resx">
+      <DependentUpon>frmCatLineas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatUMedidas.resx">
+      <DependentUpon>frmCatUMedidas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -164,36 +184,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Imagenes\Buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Cancelar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Consultar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Editar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Eliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Seleccionar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Nuevo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Guardar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Editar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Imagenes\Nuevo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Buscar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -203,7 +193,16 @@
     <None Include="Resources\Consultar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Seleccionar.png" />

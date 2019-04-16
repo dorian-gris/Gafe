@@ -59,12 +59,13 @@
             // 
             // cmdConsultar
             // 
+            this.cmdConsultar.BackColor = System.Drawing.SystemColors.Control;
             this.cmdConsultar.Location = new System.Drawing.Point(12, 221);
             this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(75, 23);
+            this.cmdConsultar.Size = new System.Drawing.Size(94, 36);
             this.cmdConsultar.TabIndex = 3;
             this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.UseVisualStyleBackColor = false;
             this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // panel2
@@ -155,22 +156,24 @@
             // 
             // cmdCancelar
             // 
+            this.cmdCancelar.BackColor = System.Drawing.SystemColors.Control;
             this.cmdCancelar.Location = new System.Drawing.Point(402, 220);
             this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.Size = new System.Drawing.Size(75, 23);
+            this.cmdCancelar.Size = new System.Drawing.Size(94, 36);
             this.cmdCancelar.TabIndex = 15;
             this.cmdCancelar.Text = "Cancelar";
-            this.cmdCancelar.UseVisualStyleBackColor = true;
+            this.cmdCancelar.UseVisualStyleBackColor = false;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdAceptar
             // 
+            this.cmdAceptar.BackColor = System.Drawing.SystemColors.Control;
             this.cmdAceptar.Location = new System.Drawing.Point(321, 220);
             this.cmdAceptar.Name = "cmdAceptar";
-            this.cmdAceptar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAceptar.Size = new System.Drawing.Size(94, 36);
             this.cmdAceptar.TabIndex = 14;
             this.cmdAceptar.Text = "Aceptar";
-            this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.UseVisualStyleBackColor = false;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // txtDescripcion
@@ -215,32 +218,35 @@
             // 
             // cmdEliminar
             // 
+            this.cmdEliminar.BackColor = System.Drawing.SystemColors.Control;
             this.cmdEliminar.Location = new System.Drawing.Point(402, 221);
             this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.Size = new System.Drawing.Size(75, 23);
+            this.cmdEliminar.Size = new System.Drawing.Size(94, 36);
             this.cmdEliminar.TabIndex = 6;
             this.cmdEliminar.Text = "Eliminar";
-            this.cmdEliminar.UseVisualStyleBackColor = true;
+            this.cmdEliminar.UseVisualStyleBackColor = false;
             this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // cmEditar
             // 
+            this.cmEditar.BackColor = System.Drawing.SystemColors.Control;
             this.cmEditar.Location = new System.Drawing.Point(321, 221);
             this.cmEditar.Name = "cmEditar";
-            this.cmEditar.Size = new System.Drawing.Size(75, 23);
+            this.cmEditar.Size = new System.Drawing.Size(94, 36);
             this.cmEditar.TabIndex = 5;
             this.cmEditar.Text = "Editar";
-            this.cmEditar.UseVisualStyleBackColor = true;
+            this.cmEditar.UseVisualStyleBackColor = false;
             this.cmEditar.Click += new System.EventHandler(this.cmEditar_Click);
             // 
             // cmdAgregar
             // 
+            this.cmdAgregar.BackColor = System.Drawing.SystemColors.Control;
             this.cmdAgregar.Location = new System.Drawing.Point(240, 221);
             this.cmdAgregar.Name = "cmdAgregar";
-            this.cmdAgregar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAgregar.Size = new System.Drawing.Size(94, 36);
             this.cmdAgregar.TabIndex = 4;
             this.cmdAgregar.Text = "Agregar";
-            this.cmdAgregar.UseVisualStyleBackColor = true;
+            this.cmdAgregar.UseVisualStyleBackColor = false;
             this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
             // 
             // grdView
@@ -287,10 +293,10 @@
             // 
             // cmdBuscar
             // 
-            this.cmdBuscar.BackColor = System.Drawing.Color.SteelBlue;
-            this.cmdBuscar.Location = new System.Drawing.Point(419, 3);
+            this.cmdBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdBuscar.Location = new System.Drawing.Point(389, 7);
             this.cmdBuscar.Name = "cmdBuscar";
-            this.cmdBuscar.Size = new System.Drawing.Size(69, 48);
+            this.cmdBuscar.Size = new System.Drawing.Size(94, 36);
             this.cmdBuscar.TabIndex = 2;
             this.cmdBuscar.Text = "Buscar";
             this.cmdBuscar.UseVisualStyleBackColor = false;
@@ -301,7 +307,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(59, 11);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(354, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 26);
             this.txtBuscar.TabIndex = 1;
             // 
             // label1

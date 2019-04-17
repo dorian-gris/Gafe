@@ -66,12 +66,15 @@
             // 
             // cmdBuscar
             // 
-            this.cmdBuscar.BackColor = System.Drawing.Color.SteelBlue;
-            this.cmdBuscar.Location = new System.Drawing.Point(419, 3);
+            this.cmdBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdBuscar.Image = global::GAFE.Properties.Resources.Buscar;
+            this.cmdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdBuscar.Location = new System.Drawing.Point(389, 3);
             this.cmdBuscar.Name = "cmdBuscar";
-            this.cmdBuscar.Size = new System.Drawing.Size(69, 48);
+            this.cmdBuscar.Size = new System.Drawing.Size(94, 36);
             this.cmdBuscar.TabIndex = 2;
             this.cmdBuscar.Text = "Buscar";
+            this.cmdBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdBuscar.UseVisualStyleBackColor = false;
             this.cmdBuscar.Click += new System.EventHandler(this.cmdBuscar_Click);
             // 
@@ -80,7 +83,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(59, 11);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(354, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(324, 26);
             this.txtBuscar.TabIndex = 1;
             // 
             // label1
@@ -104,9 +107,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtClaveUMedida);
             this.panel2.Controls.Add(this.lblCodEmpleado);
-            this.panel2.Location = new System.Drawing.Point(2, 250);
+            this.panel2.Location = new System.Drawing.Point(2, 263);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 146);
+            this.panel2.Size = new System.Drawing.Size(495, 133);
             this.panel2.TabIndex = 20;
             // 
             // cboEstatus
@@ -133,22 +136,30 @@
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.Location = new System.Drawing.Point(407, 116);
+            this.cmdCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdCancelar.Image = global::GAFE.Properties.Resources.Cancelar;
+            this.cmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdCancelar.Location = new System.Drawing.Point(375, 92);
             this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.Size = new System.Drawing.Size(75, 23);
+            this.cmdCancelar.Size = new System.Drawing.Size(94, 36);
             this.cmdCancelar.TabIndex = 11;
             this.cmdCancelar.Text = "Cancelar";
-            this.cmdCancelar.UseVisualStyleBackColor = true;
+            this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdCancelar.UseVisualStyleBackColor = false;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.Location = new System.Drawing.Point(326, 116);
+            this.cmdAceptar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdAceptar.Image = global::GAFE.Properties.Resources.Guardar;
+            this.cmdAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdAceptar.Location = new System.Drawing.Point(275, 92);
             this.cmdAceptar.Name = "cmdAceptar";
-            this.cmdAceptar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAceptar.Size = new System.Drawing.Size(94, 36);
             this.cmdAceptar.TabIndex = 10;
             this.cmdAceptar.Text = "Aceptar";
-            this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdAceptar.UseVisualStyleBackColor = false;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // txtDescripcion
@@ -193,42 +204,58 @@
             // 
             // cmdConsultar
             // 
+            this.cmdConsultar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdConsultar.Image = global::GAFE.Properties.Resources.Consultar;
+            this.cmdConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdConsultar.Location = new System.Drawing.Point(14, 221);
             this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(75, 23);
+            this.cmdConsultar.Size = new System.Drawing.Size(94, 36);
             this.cmdConsultar.TabIndex = 15;
             this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdConsultar.UseVisualStyleBackColor = false;
             this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // cmdEliminar
             // 
+            this.cmdEliminar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdEliminar.Image = global::GAFE.Properties.Resources.Eliminar;
+            this.cmdEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdEliminar.Location = new System.Drawing.Point(404, 221);
             this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.Size = new System.Drawing.Size(75, 23);
+            this.cmdEliminar.Size = new System.Drawing.Size(94, 36);
             this.cmdEliminar.TabIndex = 18;
             this.cmdEliminar.Text = "Eliminar";
-            this.cmdEliminar.UseVisualStyleBackColor = true;
+            this.cmdEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdEliminar.UseVisualStyleBackColor = false;
             this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // cmEditar
             // 
-            this.cmEditar.Location = new System.Drawing.Point(323, 221);
+            this.cmEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmEditar.Image = global::GAFE.Properties.Resources.Editar;
+            this.cmEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmEditar.Location = new System.Drawing.Point(304, 221);
             this.cmEditar.Name = "cmEditar";
-            this.cmEditar.Size = new System.Drawing.Size(75, 23);
+            this.cmEditar.Size = new System.Drawing.Size(94, 36);
             this.cmEditar.TabIndex = 17;
             this.cmEditar.Text = "Editar";
-            this.cmEditar.UseVisualStyleBackColor = true;
+            this.cmEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmEditar.UseVisualStyleBackColor = false;
             this.cmEditar.Click += new System.EventHandler(this.cmEditar_Click);
             // 
             // cmdAgregar
             // 
-            this.cmdAgregar.Location = new System.Drawing.Point(242, 221);
+            this.cmdAgregar.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdAgregar.Image = global::GAFE.Properties.Resources.Nuevo;
+            this.cmdAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdAgregar.Location = new System.Drawing.Point(204, 221);
             this.cmdAgregar.Name = "cmdAgregar";
-            this.cmdAgregar.Size = new System.Drawing.Size(75, 23);
+            this.cmdAgregar.Size = new System.Drawing.Size(94, 36);
             this.cmdAgregar.TabIndex = 16;
             this.cmdAgregar.Text = "Agregar";
-            this.cmdAgregar.UseVisualStyleBackColor = true;
+            this.cmdAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdAgregar.UseVisualStyleBackColor = false;
             this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
             // 
             // grdView
@@ -278,6 +305,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(515, 286);
             this.Name = "frmCatUMedidas";
+            this.ShowIcon = false;
             this.Text = "Catálogo de Medidas";
             this.Load += new System.EventHandler(this.frmCatUMedidas_Load);
             this.panel1.ResumeLayout(false);

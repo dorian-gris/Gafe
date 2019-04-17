@@ -150,7 +150,7 @@ namespace GAFE
                     pui.keyCveLinea = grdView[0, grdView.CurrentRow.Index].Value.ToString();
                     pui.EliminaLinea();
                     LlenaGridView();
-                    //   this.Size = this.MinimumSize;
+                    this.Size = this.MinimumSize;
                 }
 
 

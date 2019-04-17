@@ -14,7 +14,7 @@ using System.IO;
 
 namespace GAFE
 {
-    public partial class frmCatUMedidas : Form
+    public partial class frmCatMunicipios : Form
     {
         private SqlDataAdapter DatosTbl;
         private int opcion;
@@ -34,13 +34,13 @@ namespace GAFE
         private string Password;
 
 
-        public frmCatUMedidas()
+        public frmCatMunicipios()
         {
             InitializeComponent();
         }
 
 
-        public frmCatUMedidas(MsSql Odat, string perfil)
+        public frmCatMunicipios(MsSql Odat, string perfil)
         {
             InitializeComponent();
             db = Odat;
@@ -49,7 +49,7 @@ namespace GAFE
 
 
 
-        private void frmCatUMedidas_Load(object sender, EventArgs e)
+        private void frmCatMunicipios_Load(object sender, EventArgs e)
         {
             /*
             uT = new clsUtil(db, Perfil);
@@ -76,7 +76,7 @@ namespace GAFE
             LlenaGridView();
             cboEstatus.SelectedText = "Activo";
             */
-
+           
             path = Directory.GetCurrentDirectory();
             CargaDatosConexion();
             db = new DatSql.MsSql(Servidor, Datos, Usuario, Password);
@@ -107,15 +107,17 @@ namespace GAFE
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatUMedidas pui = new PuiCatUMedidas(db);
+            PuiCatMunicipios pui = new PuiCatMunicipios(db);
 
-            pui.keyCveUMedida = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarUMedida();
-            txtClaveUMedida.Text = pui.keyCveUMedida;
+            pui.keyCveMunicipio= grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarMunicipio();
+            txtCveMunicipio.Text = pui.keyCveMunicipio;
             txtDescripcion.Text = pui.cmpDescripcion;
             cboEstatus.SelectedText = (pui.cmpEstatus == "1") ? "Activo" : "Baja";
+            txtEstado.Text = pui.cmpCveEstado;
+            txtPais.Text = pui.cmpCvePais;
 
-            txtClaveUMedida.Enabled = false;
+            txtCveMunicipio.Enabled = false;
 
         }
 
@@ -128,13 +130,15 @@ namespace GAFE
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatUMedidas pui = new PuiCatUMedidas(db);
+            PuiCatMunicipios pui = new PuiCatMunicipios(db);
 
-            pui.keyCveUMedida = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarUMedida();
-            txtClaveUMedida.Text = pui.keyCveUMedida;
+            pui.keyCveMunicipio = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarMunicipio();
+            txtCveMunicipio.Text = pui.keyCveMunicipio;
             txtDescripcion.Text = pui.cmpDescripcion;
             cboEstatus.SelectedText = (pui.cmpEstatus == "1") ? "Activo" : "Baja";
+            txtEstado.Text = pui.cmpCveEstado;
+            txtPais.Text = pui.cmpCvePais;
 
             OpcionControles(false);
         }
@@ -146,9 +150,9 @@ namespace GAFE
                 if (MessageBox.Show("Esta seguro de eliminar el registro " + grdView[0, grdView.CurrentRow.Index].Value.ToString(),
                      "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    PuiCatUMedidas pui = new PuiCatUMedidas(db);
-                    pui.keyCveUMedida = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-                    pui.EliminaUMedida();
+                    PuiCatMunicipios pui = new PuiCatMunicipios(db);
+                    pui.keyCveMunicipio = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+                    pui.EliminaMunicipio();
                     LlenaGridView();
                     this.Size = this.MinimumSize;
                 }
@@ -165,8 +169,8 @@ namespace GAFE
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            PuiCatUMedidas pui = new PuiCatUMedidas(db);
-            DatosTbl = pui.BuscaUMedida(txtBuscar.Text);
+            PuiCatMunicipios pui = new PuiCatMunicipios(db);
+            DatosTbl = pui.BuscaMunicipio(txtBuscar.Text);
             DataSet ds = new DataSet();
             DatosTbl.Fill(ds);
 
@@ -201,7 +205,7 @@ namespace GAFE
             OpcionControles(true);
         }
 
-        private void frmCatUMedidas_KeyDown(object sender, KeyEventArgs e)
+        private void frmCatMunicipios_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -215,8 +219,8 @@ namespace GAFE
 
         private void LlenaGridView()
         {
-            PuiCatUMedidas pui = new PuiCatUMedidas(db);
-            DatosTbl = pui.ListarUMedidas();
+            PuiCatMunicipios pui = new PuiCatMunicipios(db);
+            DatosTbl = pui.ListarMunicipios();
             DataSet Ds = new DataSet();
 
             try
@@ -241,14 +245,16 @@ namespace GAFE
         {
             if (Validar())
             {
-                PuiCatUMedidas pui = new PuiCatUMedidas(db);
-
-                pui.keyCveUMedida = txtClaveUMedida.Text;
+                PuiCatMunicipios pui = new PuiCatMunicipios(db);
+                                
+                pui.keyCveMunicipio = txtCveMunicipio.Text;
                 pui.cmpDescripcion = txtDescripcion.Text;
                 pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "1" : "0";
+                pui.cmpCveEstado = txtEstado.Text;
+                pui.cmpCvePais = txtPais.Text;
+            
 
-
-                if (pui.AgregarUMedida() >= 1)
+                if (pui.AgregarMunicipio() >= 1)
                 {
                     MessageBox.Show("Registro agregado", "Confirmacion", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
@@ -265,13 +271,15 @@ namespace GAFE
             {
                 if (Validar())
                 {
-                    PuiCatUMedidas pui = new PuiCatUMedidas(db);
+                    PuiCatMunicipios pui = new PuiCatMunicipios(db);
 
-                    pui.keyCveUMedida = txtClaveUMedida.Text;
+                    pui.keyCveMunicipio = txtCveMunicipio.Text;
                     pui.cmpDescripcion = txtDescripcion.Text;
                     pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "1" : "0";
+                    pui.cmpCveEstado = txtEstado.Text;
+                    pui.cmpCvePais = txtPais.Text;
 
-                    if (pui.ActualizaUMedida() >= 0)
+                    if (pui.ActualizaMunicipio() >= 0)
                     {
                         MessageBox.Show("Registro Actualizado", "Confirmacion", MessageBoxButtons.OK,
                                            MessageBoxIcon.Information);
@@ -294,30 +302,30 @@ namespace GAFE
         {
             Boolean dv = true;
             ClsUtilerias Util = new ClsUtilerias();
-            if (String.IsNullOrEmpty(txtClaveUMedida.Text))
-            {
-                MessageBox.Show("Código: No puede ir vacío.", "CatUMedidaes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (String.IsNullOrEmpty(txtCveMunicipio.Text))
+            {                
+                MessageBox.Show("Código: No puede ir vacío.", "CatMunicipios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
             else
             {
-                if (!Util.LetrasNum(txtClaveUMedida.Text))
+                if (!Util.LetrasNum(txtCveMunicipio.Text))
                 {
-                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatUMedidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatMunicipios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dv = false;
                 }
             }
 
             if (String.IsNullOrEmpty(txtDescripcion.Text))
             {
-                MessageBox.Show("Descripción: No puede ir vacío.", "CatUMedidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Descripción: No puede ir vacío.", "CatMunicipios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
             else
             {
                 if (!Util.LetrasNumSpa(txtDescripcion.Text))
                 {
-                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatUMedidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatMunicipios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dv = false;
                 }
             }
@@ -329,16 +337,21 @@ namespace GAFE
 
         private void OpcionControles(Boolean Op)
         {
-            txtClaveUMedida.Enabled = Op;
+            txtCveMunicipio.Enabled = Op;
             txtDescripcion.Enabled = Op;
             cboEstatus.Enabled = Op;
+            txtPais.Enabled = Op;
+            txtEstado.Enabled = Op;
         }
 
         private void LimpiarControles()
         {
-            txtClaveUMedida.Text = "";
+            txtCveMunicipio.Text = "";
             txtDescripcion.Text = "";
             cboEstatus.Text = "";
+            txtPais.Text = "";
+            txtEstado.Text = "";
+
         }
 
         private void grdView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -379,6 +392,11 @@ namespace GAFE
                 Usuario = nUsuario[i].InnerText;
                 Password = nPassword[i++].InnerText;
             }
+        }
+
+        private void grdView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

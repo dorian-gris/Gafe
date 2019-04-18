@@ -128,6 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PuiBitacoraSistema.cs" />
     <Compile Include="PuiCatMunicipios.cs" />
     <Compile Include="PuiCatImpuestos.cs" />
     <Compile Include="PuiCatClases.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="PuiCatEmpleados.cs" />
     <Compile Include="PuiCatLineas.cs" />
     <Compile Include="PuiCatUMedidas.cs" />
+    <Compile Include="RegBitacoraSistema.cs" />
     <Compile Include="RegCatMunicipio.cs" />
     <Compile Include="RegCatImpuesto.cs" />
     <Compile Include="RegCatClase.cs" />

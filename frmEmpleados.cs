@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 using DatSql;
 using System.Xml;
 using System.IO;
-using System.Net;
 
 namespace GAFE
 { 
@@ -249,24 +248,6 @@ namespace GAFE
 
                 if (pui.AgregarEmpleado() >= 1)
                 {
-                    /*
-                      agregar registro a la bitacora
-                    */
-                    PuiBitacoraSistema sbit = new PuiBitacoraSistema(db);
-                    sbit.cmpCodRegistro = txtCodEmpleado.Text;
-                    sbit.cmpModulo = "PRUEBA";
-                    sbit.cmpOperacion = "AGREGA";
-                    sbit.cmpDescripcion = "Prueba en el cat de empleados";
-                    sbit.cmpFecha = Convert.ToDateTime(String.Format("{0:yyyy-MM-dd}", DateTime.Now));
-                    sbit.cmpHora = Convert.ToDateTime(String.Format("{0:HH:mm:ss}", DateTime.Now));
-                    sbit.cmpUsuario = "MARLEO";
-                 
-                    sbit.cmpHost = Dns.GetHostName();
-                    IPAddress [] ips = Dns.GetHostAddresses(sbit.cmpHost);
-                    sbit.cmpIP = ips[1].ToString();// .Address.ToString();
-
-                    sbit.AgregarBitacora();
-
                     MessageBox.Show("Registro agregado", "Confirmacion", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
                     LlenaGridView();

@@ -117,32 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="opfFoto.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmdCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAC
+        TQAAAk0BiG/7GQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAL9SURBVFhH7ZbP
+        axNBFMcDigj+/lmQVndn1rSQZHZjQD32qB5EK/4behFET6JFD6LeRNRajNndkKuCVRRBb560LdZ69cdB
+        FKVFq1Vbv2/3bUmy+TFJBC/5wKPN970383Z35s0kuuhStEXSVeZpzxbPYNOeMj8FRv/b4qmnxCnXETs5
+        /N/hOobj2uIBJlnUMzlWzJo2p7fPk8HB5XiqKxj0Dw8+69viJooZKqYt6Wa2byhlrS2ebaV8Wx72lLyO
+        mI8cSzmXSkcTy3i41ijlxLqyp57H4MOlVO9GdtdlpL9/DeIvwH6EuXKssMday2496MnLJl/A5PvYpU1B
+        GXuR+yEcw7zf0pvA5Jd58sheeLnkZnZr46dlH3Lf0RiuIy+y3BhacEig7/eTnhx/J2kAWFtFuBmZQ+53
+        2G8vbSqW64PAhzQhttOZ4Hfa7MHvsAhHvGynCFo/QT4+BUu1oX0eBoovtAhZTuSV3NpJEbQIkfuZ8u/s
+        khbLcfDtT1KQ74irLC3BRUxERdD2Y5cWyLsVjK3MEyzFQQGPwgnkIZYq6KSIoE9QHj4xS3HgpJa6mFc7
+        TJZiVBRhi3HdIryMMcA5UyzFgXOWgvKqZxVLNRl1jPV4W895wGk/27eNXXXhBkXxMyzFgVOrACJswWKc
+        B236Jkqp1GqObVjAGwrSPdFaKYLODo57zVIcOB9TEFbqQZaaUlXEBK0RdlWAQ+0Ix9RfhNE2xC64wZIW
+        OkVAv0b+httwqRHhkkGLhmUtGhVBixbaV/I1bEQEgoJW7NvmWZa0CYqgTllVhGub50KtSSsmosMIn+Ob
+        b1tZlrWhNl1WxGQxI/fj7zxM7zAiMHl0HL8tKKuXZW2qighM+zgmKi8k8j1e4W52aYOtfAD5C+EYLV5I
+        iKor2Rw9we2BgU3srgvF4OnPI+dXmNvGlSyixqV0BlZAYUO0Y0YNYyU63Aq6+ZAG3wgs6Kawzi6l5fy3
+        a3k1biYpXCWOY5J7sCnYXGBKvsJ1/a6v5DGK4fAuXTRJJP4CzMTqTLnGHYUAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="Cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cmdAceptar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAC
+        TQAAAk0BiG/7GQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFfSURBVFhH7ZdN
+        TsMwEIWNOE8czgErQN0jARIbIM6xuEqcE/AjFHoM2jCO3kTt2KldBxZI+aRRMz/vdVQrkqsWRnp1UjTG
+        lNa8amu+KfoZsdGNuYVzGtrWTwGjObHRtrqDfRwafnPCsq2uVi+rUzZC24P7cm6ntqVIXwKC3h0F8j1j
+        CfflHOd0lA/0OSxRtPU92tOwEOnsBdwzffENPdOvMCzyPAxMsSt0yFzCfTkn8+QlpFDmqYR0OA5X36Lk
+        I4UyT2VKF/WTA/T8xbWM6GAzwj2kPnLgzFYXlK+5fkSsi6Y+h80I95H6RAdmsiywLPB/F8Dr+MH9hHj/
+        1deQah33johPyEe4h9RnaiAqFGT7ZAsF2T7ZQkG2T7ZQkO1Dzb0rGRMVCoLz5In6ofsAX0rNJUoDQcMD
+        hOZ1U18P3nTlR8nnD67lXpS2esTXBcAfExrMee9j0em2ruTxLiwopdQPrxrv7Pwt7BUAAAAASUVORK5C
+        YII=
+</value>
   </data>
-  <data name="Consultar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Consultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seleccionar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seleccionar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>39</value>
+  </metadata>
 </root>

@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using System.Data;
 using System.Data.SqlClient;
 using DatSql;
+using System.Windows.Forms;
+
+
 
 namespace GAFE
 {
-    class RegCatLinea
+    class RegBitacora
     {
         private MsSql db = null;
         private SqlParameter[] ArrParametros;
         //private string ClaveReg;
 
-        public RegCatLinea(object[,] Param, MsSql Odat)
+        public RegBitacora(object[,] Param, MsSql Odat)
         {
             ArrParametros = new SqlParameter[Param.GetUpperBound(0) + 1];
             for (int j = 0; j < Param.GetUpperBound(0) + 1; j++)
@@ -23,7 +28,7 @@ namespace GAFE
             db = Odat;
         }
 
-        public RegCatLinea(MsSql Odat) { db = Odat; }
+        public RegBitacora(MsSql Odat) { db = Odat; }
 
         /*
         public void Conn()
@@ -42,33 +47,21 @@ namespace GAFE
         }
     */
 
-        public int AddRegLinea()
+        public int AddRegBitacora()
         {
-            string sql = "Insert into Inv_Lineas (CveLinea,Descripción,Estatus) " +
-                         "values(@CveLinea,@Descripcion,@Estatus)";
+            string sql = "Insert into sgBitacoraSistema (CodRegistro,Modulo,Operacion,Descripcion,Fecha,Hora,Usuario,Host,IP) " +
+                         "values(@CodRegistro,@Modulo,@Operacion,@Descripcion,@Fecha,@Hora,@Usuario,@Host,@IP)";
             return db.InsertarRegistro(sql, ArrParametros);
         }
 
 
-        public int UpdateLinea()
-        {
-            string sql = "Update Inv_Lineas set Descripcion = @Descripcion, " +
-                         "Estatus = @Estatus " +
-                         "Where CveLinea = @CveLinea";
-            return db.DeleteRegistro(sql, ArrParametros);
-        }
+      
 
-        public int DeleteLinea()
-        {
-            string sql = "Delete from Inv_Lineas where CveLinea = @CveLinea";
-            return db.UpdateRegistro(sql, ArrParametros);
-        }
-
-        public SqlDataAdapter ListLineas()
+        public SqlDataAdapter ListBitacoras()
         {
             SqlDataAdapter dt = null;
-            string Sql = "Select CveLinea,Descripcion " +
-                         "from Inv_Lineas";
+            string Sql = "Select CodRegistro,Modulo,Operacion,Descripcion,Fecha,Hora,Usuario,Host,IP " +
+                         "from sgBitacoraSistema";
             dt = db.SelectDA(Sql);
             return dt;
         }
@@ -76,22 +69,23 @@ namespace GAFE
         public SqlDataAdapter RegistroActivo()
         {
             SqlDataAdapter dt = null;
-            string Sql = "Select CveLinea,Descripcion,Estatus " +
-                          "from Inv_Lineas where CveLinea =@CveLinea";
+            string Sql = "Select CodRegistro,Modulo,Operacion,Descripcion,Fecha,Hora,Usuario,Host,IP " +
+                          "from sgBitacoraSistema where idReg =@idReg";
             dt = db.SelectDA(Sql, ArrParametros);
             return dt;
         }
 
-        public SqlDataAdapter BuscaLinea(string bsq)
+        public SqlDataAdapter BuscaBitacora(string bsq)
         {
             SqlDataAdapter dt = null;
-            string sql = "Select CveLinea,Descripcion " +
-               "from Inv_Lineas " +
-               "where CveLinea like '%" + bsq + "%' OR " +
+            string sql = "Select CodRegistro,Modulo,Operacion,Descripcion,Fecha,Hora,Usuario,Host,IP " +
+               "from sgBitacoraSistema " +
+               "where CodRegistro like '%" + bsq + "%' OR " +
                "Descripcion like '%" + bsq + "%' ";
 
             dt = db.SelectDA(sql);
             return dt;
         }
+
     }
 }

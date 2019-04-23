@@ -106,6 +106,23 @@ namespace GAFE
             dt = db.SelectDA(Sql);
             return dt;
         }
+        public SqlDataAdapter CboLstClaseMov()
+        {
+            SqlDataAdapter dt = null;
+            string Sql = "Select CveClsMov, Descripcion " +
+                         "from Inv_ClaseMov";
+            dt = db.SelectDA(Sql);
+            return dt;
+        }
+
+        public SqlDataAdapter CboLstMovRel()
+        {
+            SqlDataAdapter dt = null;
+            string Sql = "Select CveTipoMov, Descripcion " +
+                         "from Inv_TipoMovtos";
+            dt = db.SelectDA(Sql);
+            return dt;
+        }
 
         public SqlDataAdapter RegistroActivo()
         {

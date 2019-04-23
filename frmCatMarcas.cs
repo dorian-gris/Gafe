@@ -11,13 +11,11 @@ using System.Data.SqlClient;
 using DatSql;
 using System.Xml;
 using System.IO;
-using System.Net;
 
 namespace GAFE
-{ 
-    public partial class frmEmpleados : Form
+{
+    public partial class frmCatMarcas : Form
     {
-
         private SqlDataAdapter DatosTbl;
         private int opcion;
         private int idxG;
@@ -36,22 +34,22 @@ namespace GAFE
         private string Password;
 
 
-        public frmEmpleados()
+        public frmCatMarcas()
         {
             InitializeComponent();
         }
 
 
-        public frmEmpleados(MsSql Odat, string perfil)
+        public frmCatMarcas(MsSql Odat, string perfil)
         {
             InitializeComponent();
             db = Odat;
-           // Perfil = perfil;
+            // Perfil = perfil;
         }
 
 
 
-        private void frmEmpleados_Load(object sender, EventArgs e)
+        private void frmCatMarcas_Load(object sender, EventArgs e)
         {
             /*
             uT = new clsUtil(db, Perfil);
@@ -78,7 +76,7 @@ namespace GAFE
             LlenaGridView();
             cboEstatus.SelectedText = "Activo";
             */
-            this.Size = this.MinimumSize;
+
             path = Directory.GetCurrentDirectory();
             CargaDatosConexion();
             db = new DatSql.MsSql(Servidor, Datos, Usuario, Password);
@@ -87,12 +85,14 @@ namespace GAFE
                 MessageBox.Show(db.ErrorDat, "Error conn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+            this.Size = this.MinimumSize;
+            LlenaGridView();
         }
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
             LimpiarControles();
-            EncenderControles();
+            OpcionControles(true);
             this.Size = this.MaximumSize;
             opcion = 1;
         }
@@ -100,43 +100,42 @@ namespace GAFE
         private void cmEditar_Click(object sender, EventArgs e)
         {
             LimpiarControles();
-            EncenderControles();
+            OpcionControles(true);
             this.Size = this.MaximumSize;
             opcion = 2;
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatEmpleados pui = new PuiCatEmpleados(db);
+            PuiCatMarcas pui = new PuiCatMarcas(db);
 
-            pui.keyCatEmpleado = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarEmpleado();
-            txtCodEmpleado.Text = pui.keyCatEmpleado;
-            txtNombre.Text = pui.cmpNombre;
-            txtTelefono.Text = pui.cmpTelefono;
-            txtCodEmpleado.Enabled = false;
+            pui.keyCveMarca = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarMarcas();
+            txtClaveMarcas.Text = pui.keyCveMarca;
+            txtDescripcion.Text = pui.cmpDescripcion;
+            chkEstatus.Checked = (pui.cmpEstatus == 1) ? true : false;
 
-            cboEstatus.SelectedText = (pui.cmpEstatus == "A") ? "Activo" : "Baja";
+            txtClaveMarcas.Enabled = false;
 
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
             LimpiarControles();
-            EncenderControles();
+            OpcionControles(true);
             this.Size = this.MaximumSize;
             opcion = 3;
 
             idxG = grdView.CurrentRow.Index;
 
-            PuiCatEmpleados pui = new PuiCatEmpleados(db);
+            PuiCatMarcas pui = new PuiCatMarcas(db);
 
-            pui.keyCatEmpleado = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-            pui.EditarEmpleado();
-            txtCodEmpleado.Text = pui.keyCatEmpleado;
-            txtNombre.Text = pui.cmpNombre;
-            txtTelefono.Text = pui.cmpTelefono;
-            cboEstatus.SelectedText = (pui.cmpEstatus == "A") ? "Activo" : "Baja";
-            ApagarControles();
+            pui.keyCveMarca = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+            pui.EditarMarcas();
+            txtClaveMarcas.Text = pui.keyCveMarca;
+            txtDescripcion.Text = pui.cmpDescripcion;
+            chkEstatus.Checked = (pui.cmpEstatus == 1) ? true : false;
+
+            OpcionControles(false);
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -146,10 +145,11 @@ namespace GAFE
                 if (MessageBox.Show("Esta seguro de eliminar el registro " + grdView[0, grdView.CurrentRow.Index].Value.ToString(),
                      "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    PuiCatEmpleados pui = new PuiCatEmpleados(db);
-                    pui.keyCatEmpleado = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-                    pui.EliminaEmpleado();
+                    PuiCatMarcas pui = new PuiCatMarcas(db);
+                    pui.keyCveMarca = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+                    pui.EliminaMarcas();
                     LlenaGridView();
+                    this.Size = this.MinimumSize;
                 }
 
 
@@ -164,8 +164,8 @@ namespace GAFE
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            PuiCatEmpleados pui = new PuiCatEmpleados(db);
-            DatosTbl = pui.BuscaEmpleado(txtBuscar.Text);
+            PuiCatMarcas pui = new PuiCatMarcas(db);
+            DatosTbl = pui.BuscaMarcas(txtBuscar.Text);
             DataSet ds = new DataSet();
             DatosTbl.Fill(ds);
 
@@ -184,11 +184,11 @@ namespace GAFE
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-            
-            switch(opcion)
+
+            switch (opcion)
             {
                 case 1: Agregar(); break;
-                case 2: Editar();  break;
+                case 2: Editar(); break;
                 case 3: this.Size = this.MinimumSize; break;
             }
         }
@@ -197,15 +197,15 @@ namespace GAFE
         {
             this.Size = this.MinimumSize;
             LimpiarControles();
-            EncenderControles();
+            OpcionControles(true);
         }
 
-        private void FrmEmpleados_KeyDown(object sender, KeyEventArgs e)
+        private void frmCatMarcas_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-            }               
+            }
         }
 
 
@@ -214,8 +214,8 @@ namespace GAFE
 
         private void LlenaGridView()
         {
-            PuiCatEmpleados pui = new PuiCatEmpleados(db);
-            DatosTbl = pui.ListarEmpleados();
+            PuiCatMarcas pui = new PuiCatMarcas(db);
+            DatosTbl = pui.ListarMarcas();
             DataSet Ds = new DataSet();
 
             try
@@ -240,39 +240,21 @@ namespace GAFE
         {
             if (Validar())
             {
-                PuiCatEmpleados pui = new PuiCatEmpleados(db);
+                PuiCatMarcas pui = new PuiCatMarcas(db);
 
-                pui.keyCatEmpleado = txtCodEmpleado.Text;
-                pui.cmpNombre = txtNombre.Text;
-                pui.cmpTelefono = txtTelefono.Text;
-                pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "A" : "B";
+                pui.keyCveMarca = txtClaveMarcas.Text;
+                pui.cmpDescripcion = txtDescripcion.Text;
+                pui.cmpEstatus = chkEstatus.Checked ? 1 : 0;
 
-                if (pui.AgregarEmpleado() >= 1)
+
+                if (pui.AgregarMarcas() >= 1)
                 {
-                    /*
-                      agregar registro a la bitacora
-                    */
-                    PuiBitacoraSistema sbit = new PuiBitacoraSistema(db);
-                    sbit.cmpCodRegistro = txtCodEmpleado.Text;
-                    sbit.cmpModulo = "PRUEBA";
-                    sbit.cmpOperacion = "AGREGA";
-                    sbit.cmpDescripcion = "Prueba en el cat de empleados";
-                    sbit.cmpFecha = Convert.ToDateTime(String.Format("{0:yyyy-MM-dd}", DateTime.Now));
-                    sbit.cmpHora = Convert.ToDateTime(String.Format("{0:HH:mm:ss}", DateTime.Now));
-                    sbit.cmpUsuario = "MARLEO";
-                 
-                    sbit.cmpHost = Dns.GetHostName();
-                    IPAddress [] ips = Dns.GetHostAddresses(sbit.cmpHost);
-                    sbit.cmpIP = ips[1].ToString();// .Address.ToString();
-
-                    sbit.AgregarBitacora();
-
-                    MessageBox.Show("Registro  agregado", "Confirmacion", MessageBoxButtons.OK,
+                    MessageBox.Show("Registro agregado", "Confirmacion", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
                     LlenaGridView();
                     this.Size = this.MinimumSize;
                 }
-               
+
             }
         }
 
@@ -282,19 +264,18 @@ namespace GAFE
             {
                 if (Validar())
                 {
-                    PuiCatEmpleados pui = new PuiCatEmpleados(db);
+                    PuiCatMarcas pui = new PuiCatMarcas(db);
 
-                    pui.keyCatEmpleado = txtCodEmpleado.Text;
-                    pui.cmpNombre = txtNombre.Text;
-                    pui.cmpTelefono = txtTelefono.Text;
-                    pui.cmpEstatus = (cboEstatus.Text == "Activo") ? "A" : "B";
+                    pui.keyCveMarca = txtClaveMarcas.Text;
+                    pui.cmpDescripcion = txtDescripcion.Text;
+                    pui.cmpEstatus = chkEstatus.Checked ? 1 : 0;
 
-                    if (pui.ActualizaEmpleado() >= 0)
+                    if (pui.ActualizaMarcas() >= 0)
                     {
                         MessageBox.Show("Registro Actualizado", "Confirmacion", MessageBoxButtons.OK,
                                            MessageBoxIcon.Information);
                         this.Size = this.MinimumSize;
-                    }                   
+                    }
                     LlenaGridView();
                     //grdView.CurrentRow.Index = idxG;  
                 }
@@ -311,47 +292,56 @@ namespace GAFE
         private Boolean Validar()
         {
             Boolean dv = true;
-            if (String.IsNullOrEmpty(txtCodEmpleado.Text))
+            ClsUtilerias Util = new ClsUtilerias();
+            if (String.IsNullOrEmpty(txtClaveMarcas.Text))
             {
-                MessageBox.Show("Tienes que capturar el codigo del Operador", "CatOperador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Código: No puede ir vacío.", "CatLineaes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
-            if (String.IsNullOrEmpty(txtNombre.Text))
+            else
             {
-                MessageBox.Show("Tienes que capturar el nombre del Operador", "CatOperador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (!Util.LetrasNum(txtClaveMarcas.Text))
+                {
+                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatLineas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dv = false;
+                }
+            }
+
+            if (String.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("Descripción: No puede ir vacío.", "CatLineas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dv = false;
             }
+            else
+            {
+                if (!Util.LetrasNumSpa(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatLineas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dv = false;
+                }
+            }
+
+
             return dv;
         }
 
 
-        private void ApagarControles()
+        private void OpcionControles(Boolean Op)
         {
-            txtCodEmpleado.Enabled = false;
-            txtNombre.Enabled = false;
-            txtTelefono.Enabled = false;
-            cboEstatus.Enabled = false;
-        }
-
-        private void EncenderControles()
-        {
-            txtCodEmpleado.Enabled = true;
-            txtNombre.Enabled = true;
-            txtTelefono.Enabled = true;
-            cboEstatus.Enabled = true;
+            txtClaveMarcas.Enabled = Op;
+            txtDescripcion.Enabled = Op;
+            chkEstatus.Enabled = Op;
         }
 
         private void LimpiarControles()
         {
-            txtCodEmpleado.Text = "";
-            txtNombre.Text = "";
-            txtTelefono.Text = "";
-            cboEstatus.Text = "";
+            txtClaveMarcas.Text = "";
+            txtDescripcion.Text = "";
         }
 
         private void grdView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            cmEditar_Click(sender,e);
+            cmEditar_Click(sender, e);
         }
 
         private void grdView_DoubleClick(object sender, EventArgs e)
@@ -388,8 +378,5 @@ namespace GAFE
                 Password = nPassword[i++].InnerText;
             }
         }
-
-
-
     }
 }

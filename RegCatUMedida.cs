@@ -93,14 +93,5 @@ namespace GAFE
             dt = db.SelectDA(sql);
             return dt;
         }
-
-        public SqlDataAdapter ComboUMedida()
-        {
-            SqlDataAdapter dt = null;
-            string Sql = "Select CveUMedida as Clave,Descripcion " +
-                         "from Inv_UMedidas where Estatus=1";
-            dt = db.SelectDA(Sql);
-            return dt;
-        }
     }
 }

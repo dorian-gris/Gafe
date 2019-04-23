@@ -59,7 +59,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Windows.Forms.Ribbon, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DatSql\bin\Debug\System.Windows.Forms.Ribbon.dll</HintPath>
+      <HintPath>bin\Debug\System.Windows.Forms.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsGenCombos.cs" />
     <Compile Include="ClsUtilerias.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,17 +85,17 @@
     <Compile Include="frmCatAlmacenes.Designer.cs">
       <DependentUpon>frmCatAlmacenes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCatArticulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCatArticulos.Designer.cs">
-      <DependentUpon>frmCatArticulos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCatClases.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCatClases.designer.cs">
       <DependentUpon>frmCatClases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatClases22.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatClases22.designer.cs">
+      <DependentUpon>frmCatClases22.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCatImpuestos.cs">
       <SubType>Form</SubType>
@@ -104,11 +103,23 @@
     <Compile Include="frmCatImpuestos.designer.cs">
       <DependentUpon>frmCatImpuestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCatInventarioMovtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatInventarioMovtos.designer.cs">
+      <DependentUpon>frmCatInventarioMovtos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCatLineas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCatLineas.designer.cs">
       <DependentUpon>frmCatLineas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatMarcas.designer.cs">
+      <DependentUpon>frmCatMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCatMunicipios.cs">
       <SubType>Form</SubType>
@@ -134,17 +145,23 @@
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLstArticulos.cs">
+    <Compile Include="frmMenuCatalogos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLstArticulos.Designer.cs">
-      <DependentUpon>frmLstArticulos.cs</DependentUpon>
+    <Compile Include="frmMenuCatalogos.Designer.cs">
+      <DependentUpon>frmMenuCatalogos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegTipoMovtos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegTipoMovtos.Designer.cs">
+    <Compile Include="frmRegTipoMovtos.designer.cs">
       <DependentUpon>frmRegTipoMovtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegInventarioMovtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegInventarioMovtos.Designer.cs">
+      <DependentUpon>frmRegInventarioMovtos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,23 +170,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="PuiCatArticulos.cs" />
-    <Compile Include="PuiCatTipoMovtos.cs" />
+    <Compile Include="PuiBitacoraSistema.cs" />
+    <Compile Include="PuiCatMarcas.cs" />
     <Compile Include="PuiCatMunicipios.cs" />
     <Compile Include="PuiCatImpuestos.cs" />
     <Compile Include="PuiCatClases.cs" />
     <Compile Include="PuiCatAlmacenes.cs" />
     <Compile Include="PuiCatEmpleados.cs" />
     <Compile Include="PuiCatLineas.cs" />
+    <Compile Include="PuiCatInventarioMov.cs" />
+    <Compile Include="PuiCatTipoMovtos.cs" />
     <Compile Include="PuiCatUMedidas.cs" />
-    <Compile Include="RegCatArticulo.cs" />
-    <Compile Include="RegCatTipoMov.cs" />
+    <Compile Include="RegBitacoraSistema.cs" />
+    <Compile Include="RegCatMarcas.cs" />
     <Compile Include="RegCatMunicipio.cs" />
     <Compile Include="RegCatImpuesto.cs" />
     <Compile Include="RegCatClase.cs" />
     <Compile Include="RegCatAlmacen.cs" />
     <Compile Include="RegCatEmpleado.cs" />
     <Compile Include="RegCatLinea.cs" />
+    <Compile Include="RegCatInventarioMov.cs" />
+    <Compile Include="RegCatTipoMov.cs" />
     <Compile Include="RegCatUMedida.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -177,17 +198,23 @@
     <EmbeddedResource Include="frmCatAlmacenes.resx">
       <DependentUpon>frmCatAlmacenes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCatArticulos.resx">
-      <DependentUpon>frmCatArticulos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCatClases.resx">
       <DependentUpon>frmCatClases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatClases22.resx">
+      <DependentUpon>frmCatClases22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatImpuestos.resx">
       <DependentUpon>frmCatImpuestos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCatInventarioMovtos.resx">
+      <DependentUpon>frmCatInventarioMovtos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCatLineas.resx">
       <DependentUpon>frmCatLineas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatMarcas.resx">
+      <DependentUpon>frmCatMarcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatMunicipios.resx">
       <DependentUpon>frmCatMunicipios.cs</DependentUpon>
@@ -201,11 +228,14 @@
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLstArticulos.resx">
-      <DependentUpon>frmLstArticulos.cs</DependentUpon>
+    <EmbeddedResource Include="frmMenuCatalogos.resx">
+      <DependentUpon>frmMenuCatalogos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegTipoMovtos.resx">
       <DependentUpon>frmRegTipoMovtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegInventarioMovtos.resx">
+      <DependentUpon>frmRegInventarioMovtos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -259,9 +289,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Seleccionar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

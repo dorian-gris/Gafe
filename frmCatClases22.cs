@@ -12,10 +12,9 @@ using DatSql;
 using System.Xml;
 using System.IO;
 
-
 namespace GAFE
 {
-    public partial class frmLstArticulos : Form
+    public partial class frmCatClases22 : Form
     {
         private SqlDataAdapter DatosTbl;
         private int opcion;
@@ -35,13 +34,13 @@ namespace GAFE
         private string Password;
 
 
-        public frmLstArticulos()
+        public frmCatClases22()
         {
             InitializeComponent();
         }
 
 
-        public frmLstArticulos(MsSql Odat, string perfil)
+        public frmCatClases22(MsSql Odat, string perfil)
         {
             InitializeComponent();
             db = Odat;
@@ -50,10 +49,34 @@ namespace GAFE
 
 
 
-        private void frmLstArticulos_Load(object sender, EventArgs e)
+        private void frmCatClases22_Load(object sender, EventArgs e)
         {
-            
+            /*
+            uT = new clsUtil(db, Perfil);
+            uT.CargaArbolAcceso();
 
+            clsUsPerfil up = uT.BuscarIdNodo("1Vis001A");
+            int AcCOP = (up != null) ? up.Acceso : 0;
+            cmdAgregar.Enabled = (AcCOP == 1) ? true : false;
+
+            up = uT.BuscarIdNodo("1Vis001B");
+            AcCOP = (up != null) ? up.Acceso : 0;
+            cmEditar.Enabled = (AcCOP == 1) ? true : false;
+
+            up = uT.BuscarIdNodo("1Vis001C");
+            AcCOP = (up != null) ? up.Acceso : 0;
+            cmdEliminar.Enabled = (AcCOP == 1) ? true : false;
+
+            up = uT.BuscarIdNodo("1Vis001D");
+            AcCOP = (up != null) ? up.Acceso : 0;
+            cmdConsultar.Enabled = (AcCOP == 1) ? true : false;
+
+
+            this.Size = this.MinimumSize;
+            LlenaGridView();
+            cboEstatus.SelectedText = "Activo";
+            */
+           
             path = Directory.GetCurrentDirectory();
             CargaDatosConexion();
             db = new DatSql.MsSql(Servidor, Datos, Usuario, Password);
@@ -62,46 +85,34 @@ namespace GAFE
                 MessageBox.Show(db.ErrorDat, "Error conn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
-            LlenaGridView();            
+            this.Size = this.MinimumSize;
+            LlenaGridView();
         }
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            frmCatArticulos art = new frmCatArticulos(db, "perfil");
-            art.ShowDialog();
-            LlenaGridView();
+
+            this.Size = this.MaximumSize;
+            opcion = 1;
         }
 
         private void cmEditar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                frmCatArticulos art = new frmCatArticulos(db, "perfil",2, grdView[0, grdView.CurrentRow.Index].Value.ToString());
-                art.ShowDialog();
-                LlenaGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Tienes que seleccionar un registro \n" + ex.Message + " " + ex.StackTrace.ToString(),
-                    "Error al editar", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+
+            this.Size = this.MaximumSize;
+            opcion = 2;
+
+            idxG = grdView.CurrentRow.Index;
 
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                frmCatArticulos art = new frmCatArticulos(db, "perfil", 3, grdView[0, grdView.CurrentRow.Index].Value.ToString());
-                art.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Tienes que seleccionar un registro \n" + ex.Message + " " + ex.StackTrace.ToString(),
-                    "Error al Consultar", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+
+            this.Size = this.MaximumSize;
+            opcion = 3;
+
+            idxG = grdView.CurrentRow.Index;
 
         }
 
@@ -112,10 +123,11 @@ namespace GAFE
                 if (MessageBox.Show("Esta seguro de eliminar el registro " + grdView[0, grdView.CurrentRow.Index].Value.ToString(),
                      "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    PuiCatArticulos pui = new PuiCatArticulos(db);
-                    pui.keyCveArticulo = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-                    pui.EliminaArticulo();
-                    LlenaGridView();                    
+                    PuiCatClases pui = new PuiCatClases(db);
+                    pui.keyCveClase = grdView[0, grdView.CurrentRow.Index].Value.ToString();
+                    pui.EliminaClase();
+                    LlenaGridView();
+                    this.Size = this.MinimumSize;
                 }
 
 
@@ -130,62 +142,45 @@ namespace GAFE
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            PuiCatArticulos pui = new PuiCatArticulos(db);
-            DatosTbl = pui.BuscaArticulo(txtBuscar.Text);
+            PuiCatClases pui = new PuiCatClases(db);
+            DatosTbl = pui.BuscaClase(txtBuscar.Text);
             DataSet ds = new DataSet();
             DatosTbl.Fill(ds);
+
             grdView.Rows.Clear();
-            grdView.DataSource = ds.Tables[0];
-            /*
             for (int j = 0; j < ds.Tables[0].Rows.Count; j++)
             {
                 object[] tmp = ds.Tables[0].Rows[j].ItemArray;
                 grdView.Rows.Add(tmp);
             }
-            */
         }
-
-
-        
-
-        private void frmLstArticulos_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
-        }
-
 
 
 
 
         private void LlenaGridView()
         {
-            PuiCatArticulos pui = new PuiCatArticulos(db);
-            DatosTbl = pui.ListarArticulos();
+            PuiCatClases pui = new PuiCatClases(db);
+            DatosTbl = pui.ListarClases();
             DataSet Ds = new DataSet();
 
             try
             {
                 DatosTbl.Fill(Ds);
-                //grdView.Rows.Clear();
-                grdView.DataSource = Ds.Tables[0];
-                /*
+                grdView.Rows.Clear();
+
                 for (int j = 0; j < Ds.Tables[0].Rows.Count; j++)
                 {
                     object[] tmp = Ds.Tables[0].Rows[j].ItemArray;
                     grdView.Rows.Add(tmp);
                 }
-                */
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al cargar listado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }      
-
+        }
         
         private void grdView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -227,17 +222,9 @@ namespace GAFE
             }
         }
 
-        private void cmdSeleccionar_Click(object sender, EventArgs e)
+        private void grdView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cmdBuscar_Click(sender,e);
-            }
         }
     }
 }

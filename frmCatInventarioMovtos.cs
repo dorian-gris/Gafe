@@ -15,8 +15,9 @@ using System.Collections;
 
 namespace GAFE
 {
-    public partial class frmCatTipoMovtos : Form
+    public partial class frmCatInventarioMovtos : Form
     {
+        private String TipoDocProv = "MINV"; //MINV aun no sta registrado
         private SqlDataAdapter DatosTbl;
         private int idxG;
 
@@ -34,13 +35,13 @@ namespace GAFE
         private string Password;
 
 
-        public frmCatTipoMovtos()
+        public frmCatInventarioMovtos()
         {
             InitializeComponent();
         }
 
 
-        public frmCatTipoMovtos(MsSql Odat, string perfil)
+        public frmCatInventarioMovtos(MsSql Odat, string perfil)
         {
             InitializeComponent();
             db = Odat;
@@ -49,7 +50,7 @@ namespace GAFE
 
 
 
-        private void frmCatTipoMovtos_Load(object sender, EventArgs e)
+        private void frmCatInventarioMovtos_Load(object sender, EventArgs e)
         {
             /*
             uT = new clsUtil(db, Perfil);
@@ -92,53 +93,30 @@ namespace GAFE
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            frmRegTipoMovtos Ventana = new frmRegTipoMovtos(db,1);
+            frmRegInventarioMovtos Ventana = new frmRegInventarioMovtos(db,1,TipoDocProv);
             Ventana.ShowDialog();
             LlenaGridView();
         }
 
         private void cmEditar_Click(object sender, EventArgs e)
         {
-            frmRegTipoMovtos Ventana = new frmRegTipoMovtos(db, 2, grdView[0, grdView.CurrentRow.Index].Value.ToString());
+            frmRegInventarioMovtos Ventana = new frmRegInventarioMovtos(db, 2, grdView[0, grdView.CurrentRow.Index].Value.ToString());
             Ventana.ShowDialog();
-            LlenaGridView();
+            //LlenaGridView();
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
             idxG = grdView.CurrentRow.Index;
-            frmRegTipoMovtos Ventana = new frmRegTipoMovtos(db, 3, grdView[0, grdView.CurrentRow.Index].Value.ToString());
+            frmRegInventarioMovtos Ventana = new frmRegInventarioMovtos(db, 3, grdView[0, grdView.CurrentRow.Index].Value.ToString());
             Ventana.ShowDialog();
-            LlenaGridView();
+            //LlenaGridView();
         }
-
-        private void cmdEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("Esta seguro de eliminar el registro " + grdView[0, grdView.CurrentRow.Index].Value.ToString(),
-                     "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
-                    pui.keyCveTipoMov = grdView[0, grdView.CurrentRow.Index].Value.ToString();
-                    pui.EliminaTipoMov();
-                    LlenaGridView();
-                    this.Size = this.MinimumSize;
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Tienes que seleccionar un registro\n" + ex.Message, "Alerta", MessageBoxButtons.OK,
-                     MessageBoxIcon.Exclamation);
-            }
-        }
-
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
+            /*
+            PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
             DatosTbl = pui.BuscaTipoMov(txtBuscar.Text);
             DataSet ds = new DataSet();
             DatosTbl.Fill(ds);
@@ -149,9 +127,10 @@ namespace GAFE
                 object[] tmp = ds.Tables[0].Rows[j].ItemArray;
                 grdView.Rows.Add(tmp);
             }
+            */
         }
         
-        private void frmCatTipoMovtos_KeyDown(object sender, KeyEventArgs e)
+        private void frmCatInventarioMovtos_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -161,8 +140,8 @@ namespace GAFE
         
         private void LlenaGridView()
         {
-            PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
-            DatosTbl = pui.ListarTipoMovtos();
+            PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
+            DatosTbl = pui.ListarInventarioMovtos();
             DataSet Ds = new DataSet();
 
             try

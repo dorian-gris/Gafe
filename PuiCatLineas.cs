@@ -112,14 +112,7 @@ namespace GAFE
             RegCatLinea OpBsq = new RegCatLinea(db);
             return OpBsq.BuscaLinea(buscar);
         }
-        public DataTable CboLinea()
-        {
-            CargaParametroMat();
-            RegCatLinea OpLst = new RegCatLinea(db);
-            DataSet Cbo = new DataSet();
-            OpLst.ComboLinea().Fill(Cbo);
-            return Cbo.Tables[0];
-        }
+
 
         private void CargaParametroMat()
         {
@@ -127,6 +120,5 @@ namespace GAFE
             MatParam[1, 0] = "Descripcion"; MatParam[1, 1] = Descripcion;
             MatParam[2, 0] = "Estatus"; MatParam[2, 1] = Estatus;
         }
-
     }
 }

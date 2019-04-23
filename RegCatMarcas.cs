@@ -8,13 +8,13 @@ using DatSql;
 
 namespace GAFE
 {
-    class RegCatLinea
+    class RegCatMarcas
     {
         private MsSql db = null;
         private SqlParameter[] ArrParametros;
         //private string ClaveReg;
 
-        public RegCatLinea(object[,] Param, MsSql Odat)
+        public RegCatMarcas(object[,] Param, MsSql Odat)
         {
             ArrParametros = new SqlParameter[Param.GetUpperBound(0) + 1];
             for (int j = 0; j < Param.GetUpperBound(0) + 1; j++)
@@ -23,7 +23,7 @@ namespace GAFE
             db = Odat;
         }
 
-        public RegCatLinea(MsSql Odat) { db = Odat; }
+        public RegCatMarcas(MsSql Odat) { db = Odat; }
 
         /*
         public void Conn()
@@ -42,33 +42,33 @@ namespace GAFE
         }
     */
 
-        public int AddRegLinea()
+        public int AddRegMarcas()
         {
-            string sql = "Insert into Inv_Lineas (CveLinea,Descripción,Estatus) " +
-                         "values(@CveLinea,@Descripcion,@Estatus)";
+            string sql = "Insert into Inv_Marcas (CveMarca,Descripción,Estatus) " +
+                         "values(@CveMarca,@Descripcion,@Estatus)";
             return db.InsertarRegistro(sql, ArrParametros);
         }
 
 
-        public int UpdateLinea()
+        public int UpdateMarcas()
         {
-            string sql = "Update Inv_Lineas set Descripcion = @Descripcion, " +
+            string sql = "Update Inv_Marcas set Descripcion = @Descripcion, " +
                          "Estatus = @Estatus " +
-                         "Where CveLinea = @CveLinea";
+                         "Where CveMarca = @CveMarca";
             return db.DeleteRegistro(sql, ArrParametros);
         }
 
-        public int DeleteLinea()
+        public int DeleteMarcas()
         {
-            string sql = "Delete from Inv_Lineas where CveLinea = @CveLinea";
+            string sql = "Delete from Inv_Marcas where CveMarca = @CveMarca";
             return db.UpdateRegistro(sql, ArrParametros);
         }
 
-        public SqlDataAdapter ListLineas()
+        public SqlDataAdapter ListMarcas()
         {
             SqlDataAdapter dt = null;
-            string Sql = "Select CveLinea,Descripcion " +
-                         "from Inv_Lineas";
+            string Sql = "Select CveMarca,Descripcion " +
+                         "from Inv_Marcas";
             dt = db.SelectDA(Sql);
             return dt;
         }
@@ -76,18 +76,18 @@ namespace GAFE
         public SqlDataAdapter RegistroActivo()
         {
             SqlDataAdapter dt = null;
-            string Sql = "Select CveLinea,Descripcion,Estatus " +
-                          "from Inv_Lineas where CveLinea =@CveLinea";
+            string Sql = "Select CveMarca,Descripcion,Estatus " +
+                          "from Inv_Marcas where CveMarca =@CveMarca";
             dt = db.SelectDA(Sql, ArrParametros);
             return dt;
         }
 
-        public SqlDataAdapter BuscaLinea(string bsq)
+        public SqlDataAdapter BuscaMarcas(string bsq)
         {
             SqlDataAdapter dt = null;
-            string sql = "Select CveLinea,Descripcion " +
-               "from Inv_Lineas " +
-               "where CveLinea like '%" + bsq + "%' OR " +
+            string sql = "Select CveMarca,Descripcion " +
+               "from Inv_Marcas " +
+               "where CveMarca like '%" + bsq + "%' OR " +
                "Descripcion like '%" + bsq + "%' ";
 
             dt = db.SelectDA(sql);

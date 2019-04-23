@@ -1,6 +1,6 @@
 ﻿namespace GAFE
 {
-    partial class frmCatLineas
+    partial class frmCatMarcas
     {
         /// <summary>
         /// Required designer variable.
@@ -40,14 +40,13 @@
             this.CodEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cboEstatus = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.cmdCancelar = new System.Windows.Forms.Button();
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtClaveLinea = new System.Windows.Forms.TextBox();
+            this.txtClaveMarcas = new System.Windows.Forms.TextBox();
             this.lblCodEmpleado = new System.Windows.Forms.Label();
+            this.chkEstatus = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
             this.panel2.SuspendLayout();
@@ -181,40 +180,17 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.cboEstatus);
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.chkEstatus);
             this.panel2.Controls.Add(this.cmdCancelar);
             this.panel2.Controls.Add(this.cmdAceptar);
             this.panel2.Controls.Add(this.txtDescripcion);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtClaveLinea);
+            this.panel2.Controls.Add(this.txtClaveMarcas);
             this.panel2.Controls.Add(this.lblCodEmpleado);
             this.panel2.Location = new System.Drawing.Point(1, 265);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(495, 133);
             this.panel2.TabIndex = 14;
-            // 
-            // cboEstatus
-            // 
-            this.cboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Items.AddRange(new object[] {
-            "Activo",
-            "Baja"});
-            this.cboEstatus.Location = new System.Drawing.Point(95, 74);
-            this.cboEstatus.Name = "cboEstatus";
-            this.cboEstatus.Size = new System.Drawing.Size(147, 28);
-            this.cboEstatus.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Estatus";
             // 
             // cmdCancelar
             // 
@@ -262,15 +238,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripcion";
             // 
-            // txtClaveLinea
+            // txtClaveMarcas
             // 
-            this.txtClaveLinea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClaveLinea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveLinea.Location = new System.Drawing.Point(95, 10);
-            this.txtClaveLinea.MaxLength = 10;
-            this.txtClaveLinea.Name = "txtClaveLinea";
-            this.txtClaveLinea.Size = new System.Drawing.Size(147, 26);
-            this.txtClaveLinea.TabIndex = 7;
+            this.txtClaveMarcas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClaveMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveMarcas.Location = new System.Drawing.Point(95, 10);
+            this.txtClaveMarcas.MaxLength = 10;
+            this.txtClaveMarcas.Name = "txtClaveMarcas";
+            this.txtClaveMarcas.Size = new System.Drawing.Size(147, 26);
+            this.txtClaveMarcas.TabIndex = 7;
             // 
             // lblCodEmpleado
             // 
@@ -282,11 +258,24 @@
             this.lblCodEmpleado.TabIndex = 1;
             this.lblCodEmpleado.Text = "Codigo";
             // 
-            // frmCatLineas
+            // chkEstatus
+            // 
+            this.chkEstatus.AutoSize = true;
+            this.chkEstatus.Checked = true;
+            this.chkEstatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEstatus.Location = new System.Drawing.Point(95, 82);
+            this.chkEstatus.Name = "chkEstatus";
+            this.chkEstatus.Size = new System.Drawing.Size(71, 24);
+            this.chkEstatus.TabIndex = 20;
+            this.chkEstatus.Text = "Activo";
+            this.chkEstatus.UseVisualStyleBackColor = true;
+            // 
+            // frmCatMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 410);
+            this.ClientSize = new System.Drawing.Size(499, 420);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdEliminar);
@@ -296,13 +285,13 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(515, 459);
+            this.MaximumSize = new System.Drawing.Size(555, 459);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(515, 286);
-            this.Name = "frmCatLineas";
+            this.MinimumSize = new System.Drawing.Size(515, 299);
+            this.Name = "frmCatMarcas";
             this.ShowIcon = false;
             this.Text = "Catálogo de lineas";
-            this.Load += new System.EventHandler(this.frmCatLineas_Load);
+            this.Load += new System.EventHandler(this.frmCatMarcas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
@@ -326,13 +315,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox cboEstatus;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button cmdCancelar;
         private System.Windows.Forms.Button cmdAceptar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtClaveLinea;
+        private System.Windows.Forms.TextBox txtClaveMarcas;
         private System.Windows.Forms.Label lblCodEmpleado;
+        private System.Windows.Forms.CheckBox chkEstatus;
     }
 }

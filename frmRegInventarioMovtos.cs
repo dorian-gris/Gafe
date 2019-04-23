@@ -12,39 +12,70 @@ using DatSql;
 
 namespace GAFE
 {
-    public partial class frmRegTipoMovtos : Form
+    public partial class frmRegInventarioMovtos : Form
     {
         private int opcion;
         private MsSql db = null;
+        private int folMovto;
 
 
-        public frmRegTipoMovtos()
+        public frmRegInventarioMovtos()
         {
             InitializeComponent();
         }
 
-        public frmRegTipoMovtos(MsSql Odat, int Op, String Cod="")
+        public frmRegInventarioMovtos(MsSql Odat, int Op, String TipoDocInv)
         {
             InitializeComponent();
             opcion = Op;
             db = Odat;
             
+            PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
+            pui.keyNoMovimiento = "1";
+            pui.cmpFechaMovimiento = Convert.ToDateTime(String.Format("{0:yyyy-MM-dd}", DateTime.Now));
+            pui.cmpCveTipoMov = "";
+            pui.cmpEntSal = "";
+            pui.cmpNoDoc = "";
+            pui.cmpDocumento = "";
+            pui.cmpCveAlmacenDes = "";
+            pui.cmpCveTipoMovDest = "";
+            pui.cmpEntSalDest = "";
+            pui.cmpModulo = "";
+            pui.cmpTipoDoc = "";
+            pui.cmpSerieDoc = "";
+            pui.cmpFolioDocOrigen = "";
+            pui.cmpDescuento = 0;
+            pui.cmpTotalDscto = 0;
+            pui.cmpTIva = 0;
+            pui.cmpSubTotal = 0;
+            pui.cmpTotalDoc = 0;
+            pui.cmpCveProveedor = "";
+            pui.cmpCveCliente = "";
+            pui.cmpCancelado = 1;
+            pui.cmpCveUsarioCaptu = "";
+            pui.cmpCveCentroCosto = "";
+            pui.cmpNoMovtoTra = "";
+            pui.cmpDocTra = "";
+
+
+            pui.AgregarBlanco();
+
             LimpiarControles();
             OpcionControles(true);
-            LleCboClaseMov();
+            //LleCboClaseMov();
             switch (opcion)
             {
                 case 1://Nuevo
                     OpcionControles(true);
                 break;
                 case 2://Edita
-                    get_Campos(Cod);
-                    txtClaveTipoMov.Enabled = false;
+                    //get_Campos(Cod);
+                    //txtClaveTipoMov.Enabled = false;
                 break;
                 case 3://Consulta
-                    get_Campos(Cod);
+                    //get_Campos(Cod);
                     OpcionControles(false);
-                    cboTipoMovRel.Enabled = false;
+                    //cboTipoMovRel.Enabled = false;
                 break;
 
             }
@@ -53,10 +84,10 @@ namespace GAFE
 
         private void get_Campos(String Cod)
         {
-            PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
-            pui.keyCveTipoMov = Cod;
-            pui.EditarTipoMov();
-
+            PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
+            //pui.keyCveTipoMov = Cod;
+            //pui.EditarTipoMov();
+/*
             txtClaveTipoMov.Text = pui.keyCveTipoMov;
             txtDescripcion.Text = pui.cmpDescripcion;
             txtDescCorta.Text = pui.cmpDescCorta;
@@ -78,11 +109,11 @@ namespace GAFE
             chkCalculaIva.Checked = pui.cmpCalculaIva == 1 ? true : false;
             //chkEditaCosto.Checked = pui.cmpPideCentroCosto == 1 ? true : false;
             chkEstatus.Checked = pui.cmpEstatus == 1 ? true : false;
-
+            */
         }
 
 
-        private void frmRegTipoMovtos_KeyDown(object sender, KeyEventArgs e)
+        private void frmRegInventarioMovtos_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -111,7 +142,7 @@ namespace GAFE
         {
             if (Validar())
             {
-                //PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
+                //PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
 
                 //if (pui.AgregarTipoMov() >= 1)
                 if (set_Campos() >= 1)
@@ -150,8 +181,9 @@ namespace GAFE
 
         public int set_Campos()
         {
+            /*
             string _tipomovrel = (cboCveClsMov.Text == "TRASPASO") ? Convert.ToString(cboTipoMovRel.SelectedValue) : "";
-            PuiCatTipoMovtos pui = new PuiCatTipoMovtos(db);
+            PuiCatInventarioMov pui = new PuiCatInventarioMov(db);
             pui.keyCveTipoMov = txtClaveTipoMov.Text;
             pui.cmpDescripcion = txtDescripcion.Text;
             pui.cmpDescCorta = txtDescCorta.Text;
@@ -172,6 +204,8 @@ namespace GAFE
             pui.cmpEstatus = chkEstatus.Checked ? 1 : 0;
 
             return opcion == 1 ? pui.AgregarTipoMov() : pui.ActualizaTipoMov();
+            -*/
+            return 1;
         }
 
 
@@ -179,71 +213,7 @@ namespace GAFE
         {
             Boolean dv = true;
             ClsUtilerias Util = new ClsUtilerias();
-            if (String.IsNullOrEmpty(txtClaveTipoMov.Text))
-            {
-                MessageBox.Show("Código: No puede ir vacío.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dv = false;
-            }
-            else
-            {
-                if (!Util.LetrasNum(txtClaveTipoMov.Text))
-                {
-                    MessageBox.Show("Código: Contiene caracteres no validos.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    dv = false;
-                }
-            }
-
-            if (String.IsNullOrEmpty(txtDescripcion.Text))
-            {
-                MessageBox.Show("Descripción: No puede ir vacío.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dv = false;
-            }
-            else
-            {
-                if (!Util.LetrasNumSpa(txtDescripcion.Text))
-                {
-                    MessageBox.Show("Descripción: Contiene caracteres no validos.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    dv = false;
-                }
-            }
-
-            if (String.IsNullOrEmpty(txtDescCorta.Text))
-            {
-                MessageBox.Show("Descripción Corta: No puede ir vacío.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dv = false;
-            }
-            else
-            {
-                if (!Util.LetrasNum(txtDescCorta.Text))
-                {
-                    MessageBox.Show("Descripción Corta: Contiene caracteres no validos.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    dv = false;
-                }
-            }
-
-            if (String.IsNullOrEmpty(txtFoliador.Text))
-            {
-                MessageBox.Show("Foliador: No puede ir vacío.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dv = false;
-            }
-            else
-            {
-                if (!Util.Numeros(txtFoliador.Text))
-                {
-                    MessageBox.Show("Foliador: Contiene caracteres no validos.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    dv = false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(txtFmtoImpresion.Text))
-            {
-                if (!Util.Letras(txtFmtoImpresion.Text))
-                {
-                    MessageBox.Show("Nombre Fmto Impr: Contiene caracteres no validos.", "CatTipoMovtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    dv = false;
-                }
-            }
-
+            
 
             return dv;
         }
@@ -252,6 +222,7 @@ namespace GAFE
 
         private void OpcionControles(Boolean Op)
         {
+            /*
             txtClaveTipoMov.Enabled = Op;
             txtDescripcion.Enabled = Op;
 
@@ -273,23 +244,26 @@ namespace GAFE
             chkCalculaIva.Enabled = Op;
             //chkEditaCosto.Enabled = Op;
             chkEstatus.Enabled = Op;
-
+            */
         }
 
         private void LimpiarControles()
         {
+            /*
             txtClaveTipoMov.Text = "";
             txtDescripcion.Text = "";
+            */
         }
 
         private void cmdCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /*
         private void LleCboClaseMov()
         {
-            PuiCatTipoMovtos lin = new PuiCatTipoMovtos(db);
+            
+            PuiCatInventarioMov lin = new PuiCatInventarioMov(db);
             cboCveClsMov.DataSource = lin.CboLstClaseMov();
             cboCveClsMov.ValueMember = "CveClsMov";
             cboCveClsMov.DisplayMember = "Descripcion";
@@ -297,7 +271,7 @@ namespace GAFE
 
         private void LleCboMovRel()
         {
-            PuiCatTipoMovtos lin = new PuiCatTipoMovtos(db);
+            PuiCatInventarioMov lin = new PuiCatInventarioMov(db);
             cboTipoMovRel.DataSource = lin.CboLstMovRel();
             cboTipoMovRel.ValueMember = "CveTipoMov";
             cboTipoMovRel.DisplayMember = "Descripcion";
@@ -318,6 +292,7 @@ namespace GAFE
             }
 
         }
+        */
 
         /*Recorre un cbo y retorna el index
          * 

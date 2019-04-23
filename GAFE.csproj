@@ -85,6 +85,12 @@
     <Compile Include="frmCatAlmacenes.Designer.cs">
       <DependentUpon>frmCatAlmacenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCatArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatArticulos.Designer.cs">
+      <DependentUpon>frmCatArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCatClases.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLstArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLstArticulos.Designer.cs">
+      <DependentUpon>frmLstArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuCatalogos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PuiBitacoraSistema.cs" />
+    <Compile Include="PuiCatArticulos.cs" />
     <Compile Include="PuiCatMarcas.cs" />
     <Compile Include="PuiCatMunicipios.cs" />
     <Compile Include="PuiCatImpuestos.cs" />
@@ -182,6 +195,7 @@
     <Compile Include="PuiCatTipoMovtos.cs" />
     <Compile Include="PuiCatUMedidas.cs" />
     <Compile Include="RegBitacoraSistema.cs" />
+    <Compile Include="RegCatArticulo.cs" />
     <Compile Include="RegCatMarcas.cs" />
     <Compile Include="RegCatMunicipio.cs" />
     <Compile Include="RegCatImpuesto.cs" />
@@ -197,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatAlmacenes.resx">
       <DependentUpon>frmCatAlmacenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatArticulos.resx">
+      <DependentUpon>frmCatArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatClases.resx">
       <DependentUpon>frmCatClases.cs</DependentUpon>
@@ -227,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLstArticulos.resx">
+      <DependentUpon>frmLstArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuCatalogos.resx">
       <DependentUpon>frmMenuCatalogos.cs</DependentUpon>
@@ -289,6 +309,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Seleccionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

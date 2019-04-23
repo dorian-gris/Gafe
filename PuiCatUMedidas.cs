@@ -113,6 +113,14 @@ namespace GAFE
             return OpBsq.BuscaUMedida(buscar);
         }
 
+        public DataTable CboUMedida()
+        {
+            CargaParametroMat();
+            RegCatUMedida OpLst = new RegCatUMedida(db);
+            DataSet Cbo = new DataSet();
+            OpLst.ComboUMedida().Fill(Cbo);
+            return Cbo.Tables[0];
+        }
 
         private void CargaParametroMat()
         {

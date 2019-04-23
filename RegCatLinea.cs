@@ -93,5 +93,13 @@ namespace GAFE
             dt = db.SelectDA(sql);
             return dt;
         }
+        public SqlDataAdapter ComboLinea()
+        {
+            SqlDataAdapter dt = null;
+            string Sql = "Select CveLinea as Clave,Descripcion " +
+                         "from Inv_Lineas";
+            dt = db.SelectDA(Sql);
+            return dt;
+        }
     }
 }
